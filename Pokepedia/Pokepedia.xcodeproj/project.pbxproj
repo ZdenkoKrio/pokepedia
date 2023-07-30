@@ -14,6 +14,14 @@
 		C838BB132A768C830042FFCE /* PokepediaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C838BB122A768C830042FFCE /* PokepediaTests.swift */; };
 		C838BB1D2A768C830042FFCE /* PokepediaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C838BB1C2A768C830042FFCE /* PokepediaUITests.swift */; };
 		C838BB1F2A768C830042FFCE /* PokepediaUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C838BB1E2A768C830042FFCE /* PokepediaUITestsLaunchTests.swift */; };
+		C838BB9A2A76929D0042FFCE /* PokeListScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = C838BB992A76929D0042FFCE /* PokeListScene.swift */; };
+		C838BB9C2A7692AD0042FFCE /* PokeProfileScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = C838BB9B2A7692AD0042FFCE /* PokeProfileScene.swift */; };
+		C838BBA02A76945A0042FFCE /* PokeListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C838BB9F2A76945A0042FFCE /* PokeListView.swift */; };
+		C838BBA22A76946C0042FFCE /* PokeRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C838BBA12A76946C0042FFCE /* PokeRowView.swift */; };
+		C838BBA42A7694F80042FFCE /* Pokemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = C838BBA32A7694F80042FFCE /* Pokemon.swift */; };
+		C838BBA62A76959D0042FFCE /* PossibleTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = C838BBA52A76959D0042FFCE /* PossibleTypes.swift */; };
+		C838BBA82A76A1580042FFCE /* TypeColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C838BBA72A76A1580042FFCE /* TypeColor.swift */; };
+		C838BBAA2A76A4500042FFCE /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C838BBA92A76A4500042FFCE /* ColorExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +52,14 @@
 		C838BB182A768C830042FFCE /* PokepediaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PokepediaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C838BB1C2A768C830042FFCE /* PokepediaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokepediaUITests.swift; sourceTree = "<group>"; };
 		C838BB1E2A768C830042FFCE /* PokepediaUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokepediaUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		C838BB992A76929D0042FFCE /* PokeListScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokeListScene.swift; sourceTree = "<group>"; };
+		C838BB9B2A7692AD0042FFCE /* PokeProfileScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokeProfileScene.swift; sourceTree = "<group>"; };
+		C838BB9F2A76945A0042FFCE /* PokeListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokeListView.swift; sourceTree = "<group>"; };
+		C838BBA12A76946C0042FFCE /* PokeRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokeRowView.swift; sourceTree = "<group>"; };
+		C838BBA32A7694F80042FFCE /* Pokemon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pokemon.swift; sourceTree = "<group>"; };
+		C838BBA52A76959D0042FFCE /* PossibleTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PossibleTypes.swift; sourceTree = "<group>"; };
+		C838BBA72A76A1580042FFCE /* TypeColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeColor.swift; sourceTree = "<group>"; };
+		C838BBA92A76A4500042FFCE /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +110,8 @@
 		C838BB002A768C820042FFCE /* Pokepedia */ = {
 			isa = PBXGroup;
 			children = (
+				C838BB982A7692350042FFCE /* Scenes */,
+				C838BB972A7692240042FFCE /* Models */,
 				C838BB012A768C820042FFCE /* PokepediaApp.swift */,
 				C838BB032A768C820042FFCE /* ContentView.swift */,
 				C838BB052A768C830042FFCE /* Assets.xcassets */,
@@ -125,6 +143,44 @@
 				C838BB1E2A768C830042FFCE /* PokepediaUITestsLaunchTests.swift */,
 			);
 			path = PokepediaUITests;
+			sourceTree = "<group>";
+		};
+		C838BB972A7692240042FFCE /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				C838BBA32A7694F80042FFCE /* Pokemon.swift */,
+				C838BBA52A76959D0042FFCE /* PossibleTypes.swift */,
+				C838BBA72A76A1580042FFCE /* TypeColor.swift */,
+				C838BBA92A76A4500042FFCE /* ColorExtension.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		C838BB982A7692350042FFCE /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				C838BB9D2A7692C00042FFCE /* PokeList */,
+				C838BB9E2A7692CC0042FFCE /* PokeProfile */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		C838BB9D2A7692C00042FFCE /* PokeList */ = {
+			isa = PBXGroup;
+			children = (
+				C838BB992A76929D0042FFCE /* PokeListScene.swift */,
+				C838BB9F2A76945A0042FFCE /* PokeListView.swift */,
+				C838BBA12A76946C0042FFCE /* PokeRowView.swift */,
+			);
+			path = PokeList;
+			sourceTree = "<group>";
+		};
+		C838BB9E2A7692CC0042FFCE /* PokeProfile */ = {
+			isa = PBXGroup;
+			children = (
+				C838BB9B2A7692AD0042FFCE /* PokeProfileScene.swift */,
+			);
+			path = PokeProfile;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -257,8 +313,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C838BBA42A7694F80042FFCE /* Pokemon.swift in Sources */,
+				C838BBA22A76946C0042FFCE /* PokeRowView.swift in Sources */,
+				C838BBA02A76945A0042FFCE /* PokeListView.swift in Sources */,
 				C838BB042A768C820042FFCE /* ContentView.swift in Sources */,
+				C838BBA82A76A1580042FFCE /* TypeColor.swift in Sources */,
+				C838BBA62A76959D0042FFCE /* PossibleTypes.swift in Sources */,
 				C838BB022A768C820042FFCE /* PokepediaApp.swift in Sources */,
+				C838BB9A2A76929D0042FFCE /* PokeListScene.swift in Sources */,
+				C838BB9C2A7692AD0042FFCE /* PokeProfileScene.swift in Sources */,
+				C838BBAA2A76A4500042FFCE /* ColorExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
