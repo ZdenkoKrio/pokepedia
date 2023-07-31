@@ -15,13 +15,20 @@
 		C838BB1D2A768C830042FFCE /* PokepediaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C838BB1C2A768C830042FFCE /* PokepediaUITests.swift */; };
 		C838BB1F2A768C830042FFCE /* PokepediaUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C838BB1E2A768C830042FFCE /* PokepediaUITestsLaunchTests.swift */; };
 		C838BB9A2A76929D0042FFCE /* PokeListScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = C838BB992A76929D0042FFCE /* PokeListScene.swift */; };
-		C838BB9C2A7692AD0042FFCE /* PokeProfileScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = C838BB9B2A7692AD0042FFCE /* PokeProfileScene.swift */; };
-		C838BBA02A76945A0042FFCE /* PokeListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C838BB9F2A76945A0042FFCE /* PokeListView.swift */; };
+		C838BB9C2A7692AD0042FFCE /* PokeCardScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = C838BB9B2A7692AD0042FFCE /* PokeCardScene.swift */; };
 		C838BBA22A76946C0042FFCE /* PokeRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C838BBA12A76946C0042FFCE /* PokeRowView.swift */; };
 		C838BBA42A7694F80042FFCE /* Pokemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = C838BBA32A7694F80042FFCE /* Pokemon.swift */; };
 		C838BBA62A76959D0042FFCE /* PossibleTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = C838BBA52A76959D0042FFCE /* PossibleTypes.swift */; };
 		C838BBA82A76A1580042FFCE /* TypeColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C838BBA72A76A1580042FFCE /* TypeColor.swift */; };
 		C838BBAA2A76A4500042FFCE /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C838BBA92A76A4500042FFCE /* ColorExtension.swift */; };
+		C838BBAC2A77AB800042FFCE /* CardTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C838BBAB2A77AB800042FFCE /* CardTitleView.swift */; };
+		C838BBAE2A77ABDC0042FFCE /* MainCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C838BBAD2A77ABDC0042FFCE /* MainCardView.swift */; };
+		C838BBB02A77AC050042FFCE /* CardInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C838BBAF2A77AC050042FFCE /* CardInfoView.swift */; };
+		C838BBB22A77B5A20042FFCE /* ShinyButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C838BBB12A77B5A20042FFCE /* ShinyButtonView.swift */; };
+		C838BBB42A77B8DC0042FFCE /* TypesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C838BBB32A77B8DC0042FFCE /* TypesView.swift */; };
+		C838BBB62A77BE1F0042FFCE /* EvolutionButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C838BBB52A77BE1F0042FFCE /* EvolutionButtonView.swift */; };
+		C838BBB82A77C0AA0042FFCE /* evolve.png in Resources */ = {isa = PBXBuildFile; fileRef = C838BBB72A77C0AA0042FFCE /* evolve.png */; };
+		C838BBBA2A77F83B0042FFCE /* CardStatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C838BBB92A77F83B0042FFCE /* CardStatsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,13 +60,20 @@
 		C838BB1C2A768C830042FFCE /* PokepediaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokepediaUITests.swift; sourceTree = "<group>"; };
 		C838BB1E2A768C830042FFCE /* PokepediaUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokepediaUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		C838BB992A76929D0042FFCE /* PokeListScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokeListScene.swift; sourceTree = "<group>"; };
-		C838BB9B2A7692AD0042FFCE /* PokeProfileScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokeProfileScene.swift; sourceTree = "<group>"; };
-		C838BB9F2A76945A0042FFCE /* PokeListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokeListView.swift; sourceTree = "<group>"; };
+		C838BB9B2A7692AD0042FFCE /* PokeCardScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokeCardScene.swift; sourceTree = "<group>"; };
 		C838BBA12A76946C0042FFCE /* PokeRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokeRowView.swift; sourceTree = "<group>"; };
 		C838BBA32A7694F80042FFCE /* Pokemon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pokemon.swift; sourceTree = "<group>"; };
 		C838BBA52A76959D0042FFCE /* PossibleTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PossibleTypes.swift; sourceTree = "<group>"; };
 		C838BBA72A76A1580042FFCE /* TypeColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeColor.swift; sourceTree = "<group>"; };
 		C838BBA92A76A4500042FFCE /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
+		C838BBAB2A77AB800042FFCE /* CardTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardTitleView.swift; sourceTree = "<group>"; };
+		C838BBAD2A77ABDC0042FFCE /* MainCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCardView.swift; sourceTree = "<group>"; };
+		C838BBAF2A77AC050042FFCE /* CardInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardInfoView.swift; sourceTree = "<group>"; };
+		C838BBB12A77B5A20042FFCE /* ShinyButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShinyButtonView.swift; sourceTree = "<group>"; };
+		C838BBB32A77B8DC0042FFCE /* TypesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypesView.swift; sourceTree = "<group>"; };
+		C838BBB52A77BE1F0042FFCE /* EvolutionButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvolutionButtonView.swift; sourceTree = "<group>"; };
+		C838BBB72A77C0AA0042FFCE /* evolve.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = evolve.png; path = ../../../../../Downloads/evolve.png; sourceTree = "<group>"; };
+		C838BBB92A77F83B0042FFCE /* CardStatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardStatsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +129,7 @@
 				C838BB012A768C820042FFCE /* PokepediaApp.swift */,
 				C838BB032A768C820042FFCE /* ContentView.swift */,
 				C838BB052A768C830042FFCE /* Assets.xcassets */,
+				C838BBB72A77C0AA0042FFCE /* evolve.png */,
 				C838BB072A768C830042FFCE /* Preview Content */,
 			);
 			path = Pokepedia;
@@ -160,7 +175,7 @@
 			isa = PBXGroup;
 			children = (
 				C838BB9D2A7692C00042FFCE /* PokeList */,
-				C838BB9E2A7692CC0042FFCE /* PokeProfile */,
+				C838BB9E2A7692CC0042FFCE /* PokeCard */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -169,18 +184,24 @@
 			isa = PBXGroup;
 			children = (
 				C838BB992A76929D0042FFCE /* PokeListScene.swift */,
-				C838BB9F2A76945A0042FFCE /* PokeListView.swift */,
 				C838BBA12A76946C0042FFCE /* PokeRowView.swift */,
+				C838BBB32A77B8DC0042FFCE /* TypesView.swift */,
 			);
 			path = PokeList;
 			sourceTree = "<group>";
 		};
-		C838BB9E2A7692CC0042FFCE /* PokeProfile */ = {
+		C838BB9E2A7692CC0042FFCE /* PokeCard */ = {
 			isa = PBXGroup;
 			children = (
-				C838BB9B2A7692AD0042FFCE /* PokeProfileScene.swift */,
+				C838BB9B2A7692AD0042FFCE /* PokeCardScene.swift */,
+				C838BBAB2A77AB800042FFCE /* CardTitleView.swift */,
+				C838BBAD2A77ABDC0042FFCE /* MainCardView.swift */,
+				C838BBAF2A77AC050042FFCE /* CardInfoView.swift */,
+				C838BBB12A77B5A20042FFCE /* ShinyButtonView.swift */,
+				C838BBB52A77BE1F0042FFCE /* EvolutionButtonView.swift */,
+				C838BBB92A77F83B0042FFCE /* CardStatsView.swift */,
 			);
-			path = PokeProfile;
+			path = PokeCard;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -288,6 +309,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C838BB092A768C830042FFCE /* Preview Assets.xcassets in Resources */,
+				C838BBB82A77C0AA0042FFCE /* evolve.png in Resources */,
 				C838BB062A768C830042FFCE /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -314,15 +336,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				C838BBA42A7694F80042FFCE /* Pokemon.swift in Sources */,
+				C838BBAC2A77AB800042FFCE /* CardTitleView.swift in Sources */,
+				C838BBBA2A77F83B0042FFCE /* CardStatsView.swift in Sources */,
+				C838BBB02A77AC050042FFCE /* CardInfoView.swift in Sources */,
 				C838BBA22A76946C0042FFCE /* PokeRowView.swift in Sources */,
-				C838BBA02A76945A0042FFCE /* PokeListView.swift in Sources */,
 				C838BB042A768C820042FFCE /* ContentView.swift in Sources */,
 				C838BBA82A76A1580042FFCE /* TypeColor.swift in Sources */,
 				C838BBA62A76959D0042FFCE /* PossibleTypes.swift in Sources */,
+				C838BBB22A77B5A20042FFCE /* ShinyButtonView.swift in Sources */,
+				C838BBB42A77B8DC0042FFCE /* TypesView.swift in Sources */,
 				C838BB022A768C820042FFCE /* PokepediaApp.swift in Sources */,
 				C838BB9A2A76929D0042FFCE /* PokeListScene.swift in Sources */,
-				C838BB9C2A7692AD0042FFCE /* PokeProfileScene.swift in Sources */,
+				C838BB9C2A7692AD0042FFCE /* PokeCardScene.swift in Sources */,
 				C838BBAA2A76A4500042FFCE /* ColorExtension.swift in Sources */,
+				C838BBB62A77BE1F0042FFCE /* EvolutionButtonView.swift in Sources */,
+				C838BBAE2A77ABDC0042FFCE /* MainCardView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

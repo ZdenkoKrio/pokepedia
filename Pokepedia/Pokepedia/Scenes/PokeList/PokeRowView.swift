@@ -34,17 +34,7 @@ struct PokeRowView: View {
                         .fontWeight(.bold)
                         .font(.system(size: 23))
                 } // HSTACK
-                ScrollView([.horizontal]) {
-                    HStack {
-                        ForEach(pokemon.types) { type in
-                            Text(type.rawValue)
-                                .fontWeight(.bold)
-                                .padding(5)
-                                .background(Color(hex: TypeColor.grass.rawValue))
-                                .clipShape(Capsule())
-                        } // FOREACH
-                    } // HSTACK
-                } // SCROLL
+                TypesView(types: pokemon.types)
                 //.defaultSrcllAnchor(.center)
             } // VSTACK
             VStack {
@@ -62,6 +52,6 @@ struct PokeRowView: View {
 
 struct PokeRowView_Previews: PreviewProvider {
     static var previews: some View {
-        PokeRowView(pokemon: Pokemon(number: 4, name: "Charmander", types: [.fire, .grass]))
+        PokeRowView(pokemon: Pokemon(number: 4, name: "Charmander", types: [.fire, .grass], stats: ["Attack", "Defense"], info: "Some text about Cahrmander"))
     }
 }

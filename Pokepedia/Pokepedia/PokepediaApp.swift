@@ -11,7 +11,7 @@ import SwiftUI
 struct PokepediaApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            PokeCardScene(pokemon: Pokemon(number: 4, name: "Charmander", types: [.fire, .water], stats: ["ATTACK", "DEFENSE"], info: "SOme text about charmander"))
         }
     }
 }
