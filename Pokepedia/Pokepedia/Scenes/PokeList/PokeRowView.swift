@@ -12,16 +12,13 @@ struct PokeRowView: View {
     
     var body: some View {
         HStack {
-            Image(systemName: "star")
-                .resizable()
-                .aspectRatio(contentMode: .fill)
-                .frame(width: 40, height: 40)
+            
             AsyncImage(url: URL(string: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/\(pokemon.number).png")) {
                 image in
                 image
                     .resizable()
                     .aspectRatio(contentMode: .fill)
-                    .frame(width: 80, height: 80)
+                    .frame(width: 70, height: 70)
                     .clipShape(RoundedRectangle(cornerRadius: 8))
                     .shadow(radius: 4
                     )
@@ -32,17 +29,17 @@ struct PokeRowView: View {
                 HStack {
                     Text("# \(pokemon.number)")
                         .fontWeight(.bold)
-                        .font(.system(size: 25))
+                        .font(.system(size: 23))
                     Text(pokemon.name)
                         .fontWeight(.bold)
-                        .font(.system(size: 25))
+                        .font(.system(size: 23))
                 } // HSTACK
                 ScrollView([.horizontal]) {
                     HStack {
                         ForEach(pokemon.types) { type in
                             Text(type.rawValue)
                                 .fontWeight(.bold)
-                                .padding(7)
+                                .padding(5)
                                 .background(Color(hex: TypeColor.grass.rawValue))
                                 .clipShape(Capsule())
                         } // FOREACH
@@ -50,6 +47,13 @@ struct PokeRowView: View {
                 } // SCROLL
                 //.defaultSrcllAnchor(.center)
             } // VSTACK
+            VStack {
+                Image(systemName: "star")
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .frame(width: 30, height: 30)
+                Spacer()
+            }
         } // HSTACK
         .padding(10)
         
