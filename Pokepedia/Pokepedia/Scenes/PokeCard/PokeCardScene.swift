@@ -9,6 +9,8 @@ import SwiftUI
 
 struct PokeCardScene: View {
     var pokemon: Pokemon
+    @State var isFav: Bool
+    @Binding var favorites: [Int]
     
     var body: some View {
         ScrollView([.vertical]) {
@@ -26,6 +28,6 @@ struct PokeCardScene: View {
 struct PokeCardScene_Previews: PreviewProvider {
     static var previews: some View {
         PokeCardScene(pokemon: Pokemon(number: 4, name: "Charmander", types: [.fire],
-                                       stats: ["Attack", "Defense"], info: "TExt about pokemon"))
+                                       stats: ["Attack", "Defense"], info: "TExt about pokemon"), isFav: true, favorites: .constant([]))
     }
 }

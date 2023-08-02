@@ -11,7 +11,7 @@ import SwiftUI
 struct PokepediaApp: App {
     var body: some Scene {
         WindowGroup {
-            PokeCardScene(pokemon: Pokemon(number: 4, name: "Charmander", types: [.fire, .water], stats: ["ATTACK", "DEFENSE"], info: "SOme text about charmander"))
+            PokeListScene(pokemons: [Pokemon(number: 4, name: "Charmander", types: [.fire, .water], stats: ["ATTACK", "DEFENSE"], info: "SOme text about charmander"), Pokemon(number: 5, name: "Charmander", types: [.fire, .water], stats: ["ATTACK", "DEFENSE"], info: "SOme text about charmander")])
         }
     }
 }
