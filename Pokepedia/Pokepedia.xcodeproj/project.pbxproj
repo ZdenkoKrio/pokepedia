@@ -29,6 +29,7 @@
 		C838BBB62A77BE1F0042FFCE /* EvolutionButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C838BBB52A77BE1F0042FFCE /* EvolutionButtonView.swift */; };
 		C838BBB82A77C0AA0042FFCE /* evolve.png in Resources */ = {isa = PBXBuildFile; fileRef = C838BBB72A77C0AA0042FFCE /* evolve.png */; };
 		C838BBBA2A77F83B0042FFCE /* CardStatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C838BBB92A77F83B0042FFCE /* CardStatsView.swift */; };
+		C838BBD92A7A96630042FFCE /* EvolveScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = C838BBD82A7A96630042FFCE /* EvolveScene.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +75,7 @@
 		C838BBB52A77BE1F0042FFCE /* EvolutionButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvolutionButtonView.swift; sourceTree = "<group>"; };
 		C838BBB72A77C0AA0042FFCE /* evolve.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = evolve.png; path = ../../../../../Downloads/evolve.png; sourceTree = "<group>"; };
 		C838BBB92A77F83B0042FFCE /* CardStatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardStatsView.swift; sourceTree = "<group>"; };
+		C838BBD82A7A96630042FFCE /* EvolveScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvolveScene.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -193,6 +195,7 @@
 		C838BB9E2A7692CC0042FFCE /* PokeCard */ = {
 			isa = PBXGroup;
 			children = (
+				C838BBD72A7A964C0042FFCE /* EvolveScene */,
 				C838BB9B2A7692AD0042FFCE /* PokeCardScene.swift */,
 				C838BBAB2A77AB800042FFCE /* CardTitleView.swift */,
 				C838BBAD2A77ABDC0042FFCE /* MainCardView.swift */,
@@ -202,6 +205,14 @@
 				C838BBB92A77F83B0042FFCE /* CardStatsView.swift */,
 			);
 			path = PokeCard;
+			sourceTree = "<group>";
+		};
+		C838BBD72A7A964C0042FFCE /* EvolveScene */ = {
+			isa = PBXGroup;
+			children = (
+				C838BBD82A7A96630042FFCE /* EvolveScene.swift */,
+			);
+			path = EvolveScene;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -342,6 +353,7 @@
 				C838BBA22A76946C0042FFCE /* PokeRowView.swift in Sources */,
 				C838BB042A768C820042FFCE /* ContentView.swift in Sources */,
 				C838BBA82A76A1580042FFCE /* TypeColor.swift in Sources */,
+				C838BBD92A7A96630042FFCE /* EvolveScene.swift in Sources */,
 				C838BBA62A76959D0042FFCE /* PossibleTypes.swift in Sources */,
 				C838BBB22A77B5A20042FFCE /* ShinyButtonView.swift in Sources */,
 				C838BBB42A77B8DC0042FFCE /* TypesView.swift in Sources */,

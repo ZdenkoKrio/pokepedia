@@ -14,7 +14,7 @@ struct PokeCardScene: View {
         ScrollView([.vertical]) {
             VStack(alignment: .center) {
                 CardTitleView(number: pokemon.number, name: pokemon.name)
-                MainCardView(number: pokemon.number, types: pokemon.types)
+                MainCardView(pokemon: pokemon)
                 CardStatsView(stats: pokemon.stats)
                 
                 CardInfoView(stats: pokemon.stats, info: pokemon.info)

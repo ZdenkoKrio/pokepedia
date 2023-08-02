@@ -12,6 +12,8 @@ struct ShinyButtonView: View {
     
     var body: some View {
         Button(shiny ? "Normal" : "Shiny") {shiny.toggle()}
+            .font(.title3)
+            .fontWeight(.bold)
             .foregroundColor(.white)
             .frame(width: 80, height: 40)
             .background(Color.yellow)
@@ -21,12 +23,11 @@ struct ShinyButtonView: View {
          
 }
 
-/*
+
  struct ShinyButtonView_Previews: PreviewProvider {
- @State var s: Bool = true
  
  static var previews: some View {
- ShinyButtonView(shiny: $s)
+     ShinyButtonView(shiny: .constant(true))
  }
  }
- */
+ 
