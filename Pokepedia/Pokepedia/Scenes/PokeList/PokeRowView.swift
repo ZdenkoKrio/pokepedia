@@ -8,12 +8,12 @@
 import SwiftUI
 
 struct PokeRowView: View {
-    let pokemon: Pokemon
+    let state: PokeRowViewState
     
     var body: some View {
         HStack {
             
-            AsyncImage(url: URL(string: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/\(pokemon.number).png")) {
+            AsyncImage(url: URL(string: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/\(state.number).png")) {
                 image in
                 image
                     .resizable()
@@ -27,14 +27,14 @@ struct PokeRowView: View {
             }
             VStack(alignment: .leading) {
                 HStack {
-                    Text("# \(pokemon.number)")
+                    Text("# \(state.number)")
                         .fontWeight(.bold)
                         .font(.system(size: 23))
-                    Text(pokemon.name)
+                    Text(state.name)
                         .fontWeight(.bold)
                         .font(.system(size: 23))
                 } // HSTACK
-                TypesView(types: pokemon.types)
+                //TypesView(types: pokemon.types)
                 //.defaultSrcllAnchor(.center)
             } // VSTACK
             VStack {
@@ -52,6 +52,6 @@ struct PokeRowView: View {
 
 struct PokeRowView_Previews: PreviewProvider {
     static var previews: some View {
-        PokeRowView(pokemon: Pokemon(number: 4, name: "Charmander", types: [.fire, .grass], stats: ["Attack", "Defense"], info: "Some text about Cahrmander"))
+        PokeRowView(state: PokeRowViewState(url: "https://pokeapi.co/api/v2/pokemon/3/", name: "Ivisaur"))
     }
 }

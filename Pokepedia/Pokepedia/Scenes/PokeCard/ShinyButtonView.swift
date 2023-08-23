@@ -8,10 +8,10 @@
 import SwiftUI
 
 struct ShinyButtonView: View {
-    @Binding var shiny: Bool
+    let state: ShinyButtonViewState
     
     var body: some View {
-        Button(shiny ? "Normal" : "Shiny") {shiny.toggle()}
+        Button(state.shiny ? "Normal" : "Shiny") {state.shiny.toggle()}
             .font(.title3)
             .fontWeight(.bold)
             .foregroundColor(.white)
@@ -27,7 +27,7 @@ struct ShinyButtonView: View {
  struct ShinyButtonView_Previews: PreviewProvider {
  
  static var previews: some View {
-     ShinyButtonView(shiny: .constant(true))
+     ShinyButtonView(state: ShinyButtonViewState(shiny: .constant(true)))
  }
  }
  

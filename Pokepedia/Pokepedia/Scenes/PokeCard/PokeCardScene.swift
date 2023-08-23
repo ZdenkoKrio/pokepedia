@@ -8,26 +8,28 @@
 import SwiftUI
 
 struct PokeCardScene: View {
-    var pokemon: Pokemon
-    @State var isFav: Bool
-    @Binding var favorites: [Int]
+    let state: PokeCardSceneState
     
     var body: some View {
         ScrollView([.vertical]) {
             VStack(alignment: .center) {
-                CardTitleView(number: pokemon.number, name: pokemon.name)
-                MainCardView(pokemon: pokemon)
-                CardStatsView(stats: pokemon.stats)
-                
-                CardInfoView(stats: pokemon.stats, info: pokemon.info)
+                if state.isLoaded {
+                    //Text("\(state.getTypes()[0].rawValue)")
+                    CardTitleView(state: CardTitleViewState(number: state.number, name: state.name))
+                    MainCardView(state: MainCardViewState(number: state.number, types: state.getTypes()))
+                    CardStatsView(state: CardStatsViewState(stats: state.stats))
+                    
+                    CardInfoView(state: CardInfoViewState(stats: state.stats))
+                } // IF
             } // VSTACK
         } // SCROLL
+        .task{await state.fetch()}
     }
 }
 
 struct PokeCardScene_Previews: PreviewProvider {
     static var previews: some View {
-        PokeCardScene(pokemon: Pokemon(number: 4, name: "Charmander", types: [.fire],
-                                       stats: ["Attack", "Defense"], info: "TExt about pokemon"), isFav: true, favorites: .constant([]))
+        PokeCardScene(state: PokeCardSceneState(isFav: false, favorites: .constant([]), url: "https://pokeapi.co/api/v2/pokemon/3/"))
+            .injectPreviewsEnvironment()
     }
 }

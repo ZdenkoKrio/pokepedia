@@ -7,11 +7,28 @@
 
 import Foundation
 
-struct Pokemon {
-    let number: Int
+struct Pokemon: Decodable {
+    let id: Int
     let name: String
-    let types: [PossibleTypes]
-    let stats: [String]
-    let info: String
-   // let image: URL
+    let height: Int
+    let weight: Int
+    let species: Species
+    let types: [TypeSlot]
+    let stats: [Stat]
+}
+
+extension Pokemon {
+    static let mock: Pokemon = Pokemon(id: 4,
+                                       name: "charmander",
+                                       height: 120,
+                                       weight: 50,
+                                       species: Species(name: "charmander", url: ""),
+                                       types: [TypeSlot(type: PokeType(name: "grass", url: "")),
+                                               TypeSlot(type: PokeType(name: "fire", url: ""))],
+                                       stats: [Stat(value: 10, effort: 0, info: StatInfo(name: "attack", url: "")),
+                                               Stat(value: 10, effort: 0, info: StatInfo(name: "attack-special", url: "")),
+                                               Stat(value: 10, effort: 0, info: StatInfo(name: "defense", url: "")),
+                                               Stat(value: 10, effort: 0, info: StatInfo(name: "defense-specil", url: "")),
+                                               Stat(value: 10, effort: 0, info: StatInfo(name: "speed", url: "")),
+                                               Stat(value: 10, effort: 0, info: StatInfo(name: "hp", url: ""))])
 }

@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct EvolveScene: View {
+    let state: EvolveSceneState
+    
     var body: some View {
         Text("EVOLVS")
     }
@@ -15,6 +17,6 @@ struct EvolveScene: View {
 
 struct EvolveScene_Previews: PreviewProvider {
     static var previews: some View {
-        EvolveScene()
+        EvolveScene(state: EvolveSceneState())
     }
 }

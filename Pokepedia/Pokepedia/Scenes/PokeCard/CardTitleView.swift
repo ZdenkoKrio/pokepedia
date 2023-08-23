@@ -8,17 +8,16 @@
 import SwiftUI
 
 struct CardTitleView: View {
-    let number: Int
-    let name: String
+    let state: CardTitleViewState
     
     var body: some View {
         HStack {
-            Text("#\(number)")
+            Text("#\(state.number)")
                 .fontWeight(.bold)
                 .font(.system(size: 30))
                 .padding()
             //Spacer()
-            Text(name)
+            Text(state.name)
                 .fontWeight(.bold)
                 .font(.system(size: 30))
         } // HSTACK
@@ -27,6 +26,6 @@ struct CardTitleView: View {
 
 struct CardTitleView_Previews: PreviewProvider {
     static var previews: some View {
-        CardTitleView(number: 4, name: "Charmander")
+        CardTitleView(state: CardTitleViewState(number: 4, name: "Charmander"))
     }
 }

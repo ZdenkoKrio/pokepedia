@@ -9,9 +9,13 @@ import SwiftUI
 
 struct EvolutionButtonView: View {
     var body: some View {
-        Image("evolve")
-            .resizable()
-            .frame(width: 60, height: 80)
+        NavigationStack {
+            NavigationLink(destination: EvolveScene(state: EvolveSceneState())) {
+                Image("evolve")
+                    .resizable()
+                    .frame(width: 60, height: 80)
+            } // LINK
+        } // NAVIGATION STACK
     }
 }
 

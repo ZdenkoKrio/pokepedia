@@ -8,15 +8,13 @@
 import SwiftUI
 
 struct CardInfoView: View {
-    let stats: [String]
-    let info: String
-    @State var isPresentingStats: Bool = false
+    let state: CardInfoViewState
     
     var body: some View {
         VStack {
             Button("Show stats") {
-                isPresentingStats.toggle()
-            }
+                state.isPresentingStats.toggle()
+            } // BUTTON
             .font(.title3)
             .fontWeight(.bold)
             .foregroundColor(.white)
@@ -25,19 +23,18 @@ struct CardInfoView: View {
             .cornerRadius(15)
             .shadow(radius: 25)
             .padding()
-            .sheet(isPresented: $isPresentingStats) {
-                CardStatsView(stats: stats)
+            .sheet(isPresented: state.$isPresentingStats) {
+                CardStatsView(state: CardStatsViewState(stats: state.stats))
                     .presentationDetents([.medium])
                     .presentationDragIndicator(.visible)
-            }
-            Text(info)
-        }
+            } // SHEET
+        } // VSTACK
     }
 }
 
 
 struct CardInfoView_Previews: PreviewProvider {
     static var previews: some View {
-        CardInfoView(stats: ["Health", "DEF", "ATCK"], info: "Poketext")
+        CardInfoView(state: CardInfoViewState(stats: Pokemon.mock.stats))
     }
 }

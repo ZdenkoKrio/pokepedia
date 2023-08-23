@@ -8,12 +8,12 @@
 import SwiftUI
 
 struct TypesView: View {
-    let types: [PossibleTypes]
+    let state: TypesViewState
     
     var body: some View {
         ScrollView([.horizontal]) {
             HStack {
-                ForEach(types) { type in
+                ForEach(state.types) { type in
                     Text(type.rawValue)
                         .fontWeight(.bold)
                         .padding(5)
@@ -27,6 +27,6 @@ struct TypesView: View {
 
 struct TypesView_Previews: PreviewProvider {
     static var previews: some View {
-        TypesView(types: [.fire, .fire, .grass, .water])
+        TypesView(state: TypesViewState(types: [.fire, .fire, .grass, .water]))
     }
 }

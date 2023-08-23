@@ -8,37 +8,21 @@
 import SwiftUI
 
 struct MainCardView: View {
-    let pokemon: Pokemon
-    @State var shiny: Bool = false
+    let state: MainCardViewState
     
     var body: some View {
         ZStack(alignment: .topTrailing) {
         VStack(alignment: .center){
-            AsyncImage(url: URL(string: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork\(shiny ? "/shiny" : "")/\(pokemon.number).png")) {
-                image in
-                image
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
-                    .frame(width: 250, height: 250)
-                    .clipShape(RoundedRectangle(cornerRadius: 8))
-                    .shadow(radius: 4)
-                
-            } placeholder: {
-                EmptyView()
-            }
-            
-            .frame(width: 350, height: 350)
-            .background(Gradient(colors: [Color(""), Color(pokemon.types[0].rawValue), Color("Dark\(pokemon.types[0].rawValue)")]))
-            .clipShape(Circle())
-            .padding(30)
-            
+            PokeImageView(state: PokeImageViewState(shiny: state.$shiny,
+                                                    pokemon: state.number,
+                                                    types: state.types))
             HStack(alignment: .center) {
                 Spacer()
-                TypesView(types: pokemon.types)
+                TypesView(state: TypesViewState(types: state.types))
                     .padding([.horizontal], 60)
             } // HSTACK
         } // VSTACK
-            ShinyButtonView(shiny: $shiny)
+            ShinyButtonView(state: ShinyButtonViewState(shiny: state.$shiny))
                 .padding(40)
                 
             ZStack (alignment: .bottomTrailing) {
@@ -53,7 +37,6 @@ struct MainCardView: View {
 
 struct MainCardView_Previews: PreviewProvider {
     static var previews: some View {
-        MainCardView(pokemon: Pokemon(number: 4, name: "Charmander", types: [.fire],
-                                      stats: ["Attack", "Defense"], info: "TExt about pokemon"))
+        MainCardView(state: MainCardViewState(number: 4, types: [.fire]))
     }
 }

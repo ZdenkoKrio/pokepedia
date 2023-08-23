@@ -8,17 +8,21 @@
 import SwiftUI
 
 struct CardStatsView: View {
-    let stats: [String]
+    let state: CardStatsViewState
     
     var body: some View {
-        List(stats, id: \.count) {stat in
-            Text(stat)
-        }
+        List(state.stats, id: \.info.url) {stat in
+            HStack {
+                Text(stat.info.name)
+                Spacer()
+                Text("\(stat.value)")
+            } // HSTACK
+        } // LIST
     }
 }
 
 struct CardStatsView_Previews: PreviewProvider {
     static var previews: some View {
-        CardStatsView(stats: ["Health", "Attack", "Defense"])
+        CardStatsView(state: CardStatsViewState(stats: Pokemon.mock.stats))
     }
 }
