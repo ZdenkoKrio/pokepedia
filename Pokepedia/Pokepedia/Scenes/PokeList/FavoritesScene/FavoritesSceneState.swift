@@ -6,12 +6,20 @@
 //
 
 import SwiftUI
+import SimpleToast
 
 struct FavoritesSceneState: DynamicProperty {
     @Binding var favorites: [String]
     @State var favoritRowPokemons: [RowPokemon]
+    @State var toastLabel: String = ""
+    @State var showToast: Bool = false
     
     var isFavoritesEmpty: Bool {
         !favorites.isEmpty
     }
+    
+    let toastOptions = SimpleToastOptions(
+            hideAfter: 1,
+            modifierType: .scale
+        )
 }

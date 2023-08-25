@@ -9,6 +9,7 @@ import SwiftUI
 
 struct PokeImageViewState: DynamicProperty {
     @Binding var shiny: Bool
+    let backgroundNumber: Int
     let pokemon: Int
     let types: [PossibleTypes]
 }

@@ -16,7 +16,7 @@ final class EvolutionChainObservableObject: ObservableObject {
         do {
             evolutionChain = try await evolutionChainService.evolve(number: number)
         } catch {
-            print("Some Error in evolve Service: \(error)")
+            print("\(ObservableObjectError.evolutionChain) : \(error)")
         }
     }
 }

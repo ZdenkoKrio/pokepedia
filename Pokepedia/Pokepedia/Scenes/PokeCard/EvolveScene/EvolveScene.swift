@@ -18,17 +18,21 @@ struct EvolveScene: View {
             ScrollView(.horizontal) {
                 HStack {
                     Group {
+                        /*
                         if !state.isEvolutionEmpty {
-                            List(state.evolution ?? [], id: \.name) { pokemon in
+                            List(state.evolution ?? []) { pokemon in
                                 VStack {
                                     CardTitleView(state: CardTitleViewState(number: pokemon.id, name: pokemon.name))
-                                    PokeImageView(state: PokeImageViewState(shiny: .constant(false), pokemon: pokemon.id, types: state.getTypes(pokemon: pokemon)))
+                                    
+                                    PokeImageView(state: PokeImageViewState(shiny: .constant(false), backgroundColor: Gradient(colors: [Color(""), Color(pokemon.types[0].rawValue), Color("Dark_\(pokemon.types[0].rawValue)")]), pokemon: pokemon.id))
+                                     
                                 } // VSTACK
                             } // LIST
                             .listStyle(.plain)
                         } else {
                             ProgressView()
                         } // ELSE
+                        */
                     } // GROUP
                 } // HSTACK
             } // SCROLL

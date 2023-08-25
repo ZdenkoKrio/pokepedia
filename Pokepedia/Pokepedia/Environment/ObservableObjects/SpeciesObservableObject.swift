@@ -16,7 +16,7 @@ final class SpeciesObservableObject: ObservableObject {
         do {
             pokemonSpecies = try await speciesService.species(number: number)
         } catch {
-            print("Some Error species Service: \(error)")
+            print("\(ObservableObjectError.species) : \(error)")
         }
     }
 }

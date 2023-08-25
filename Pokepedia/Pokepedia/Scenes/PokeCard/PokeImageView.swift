@@ -24,7 +24,7 @@ struct PokeImageView: View {
             ProgressView()
         }
         .frame(width: 350, height: 350)
-        .background(Gradient(colors: [Color(""), Color(state.types[0].rawValue), Color("Dark_\(state.types[0].rawValue)")]))
+        .background(Gradient(colors: [Color(""), Color(state.types[state.backgroundNumber].rawValue), Color("Dark_\(state.types[state.backgroundNumber].rawValue)")]))
         .clipShape(Circle())
         .padding(30)
     }
@@ -32,6 +32,6 @@ struct PokeImageView: View {
 
 struct PokeImageView_Previews: PreviewProvider {
     static var previews: some View {
-        PokeImageView(state: PokeImageViewState(shiny: .constant(false), pokemon: 4, types: [.fire]))
+        PokeImageView(state: PokeImageViewState(shiny: .constant(false), backgroundNumber: 0, pokemon: 4, types: [.fire]))
     }
 }

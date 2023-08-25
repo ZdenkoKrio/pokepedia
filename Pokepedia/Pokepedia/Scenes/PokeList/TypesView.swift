@@ -13,12 +13,17 @@ struct TypesView: View {
     var body: some View {
         ScrollView([.horizontal]) {
             HStack {
-                ForEach(state.types) { type in
-                    Text(type.rawValue)
+                ForEach(Array(state.types.enumerated()), id: \.element) { index, type in
+                    Button("\(type.rawValue)") {
+                        state.setBackground(num: index)
+                    } // BUTTON
                         .fontWeight(.bold)
                         .padding(5)
-                        .background(Color(type.rawValue))
-                        .clipShape(Capsule())
+                        .background(Color(type.rawValue).cornerRadius(20))
+                        .foregroundColor(.white)
+                        //.clipShape(Capsule())
+                        .border(Color("Dark_\(type.rawValue)"), width: 4)
+                        .cornerRadius(20)
                 } // FOREACH
             } // HSTACK
         } // SCROLL
@@ -27,6 +32,6 @@ struct TypesView: View {
 
 struct TypesView_Previews: PreviewProvider {
     static var previews: some View {
-        TypesView(state: TypesViewState(types: [.fire, .fire, .grass, .water]))
+        TypesView(state: TypesViewState(backgroundNumber: .constant(0), types: [.fire, .fire, .grass, .water]))
     }
 }

@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SimpleToast
 
 struct PokeRowView: View {
     let state: PokeRowViewState
@@ -46,15 +47,14 @@ struct PokeRowView: View {
                         state.favoritToggle()
                     }
                 Spacer()
-            }
+            } // VSTACK
         } // HSTACK
         .padding(10)
-        
     }
 }
 
 struct PokeRowView_Previews: PreviewProvider {
     static var previews: some View {
-        PokeRowView(state: PokeRowViewState(url: "https://pokeapi.co/api/v2/pokemon/3/", name: "Ivisaur", favorites: .constant([]), isFav: false))
+        PokeRowView(state: PokeRowViewState(url: "https://pokeapi.co/api/v2/pokemon/3/", name: "Ivisaur", favorites: .constant([]), showToast: .constant(false), toastLabel: .constant(""), isFav: false))
     }
 }

@@ -9,6 +9,7 @@ import SwiftUI
 
 struct MainCardViewState: DynamicProperty {
     @State var shiny: Bool = false
+    @State var backgroundNumber: Int = 0
     
     let number: Int
     let types: [PossibleTypes]

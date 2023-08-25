@@ -17,7 +17,7 @@ struct FavoritesScene: View {
                 if state.isFavoritesEmpty {
                     List(state.favoritRowPokemons, id: \.url) { pokemon in
                         NavigationLink(destination: coordinator.pokeCardScene(state: PokeCardSceneState(url: pokemon.url))) {
-                            PokeRowView(state: PokeRowViewState(url: pokemon.url, name: pokemon.name, favorites: state.$favorites, isFav: state.favorites.contains(pokemon.name)))
+                            PokeRowView(state: PokeRowViewState(url: pokemon.url, name: pokemon.name, favorites: state.$favorites, showToast: .constant(false), toastLabel: state.$toastLabel, isFav: state.favorites.contains(pokemon.name)))
                         } // LINK
                     } // LIST
                     .listStyle(.plain)
@@ -27,6 +27,15 @@ struct FavoritesScene: View {
             } // GROUP
             .navigationTitle("Favorites")
             .navigationBarTitleDisplayMode(.inline)
+            .simpleToast(isPresented: state.$showToast, options: state.toastOptions) {
+                Spacer()
+                Label(state.toastLabel, systemImage: "")
+                        .padding()
+                        .background(Color.black.opacity(0.7))
+                        .foregroundColor(Color.white)
+                        .cornerRadius(20)
+                        .padding(.bottom)
+            } // TOAST
         } // NAVIGATION
     }
 }

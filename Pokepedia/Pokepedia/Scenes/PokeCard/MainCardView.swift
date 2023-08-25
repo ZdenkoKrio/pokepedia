@@ -14,11 +14,13 @@ struct MainCardView: View {
         ZStack(alignment: .topTrailing) {
         VStack(alignment: .center){
             PokeImageView(state: PokeImageViewState(shiny: state.$shiny,
+                                                    backgroundNumber: state.backgroundNumber,
                                                     pokemon: state.number,
-                                                    types: state.types))
+                                                    types: state.types
+                                                   ))
             HStack(alignment: .center) {
                 Spacer()
-                TypesView(state: TypesViewState(types: state.types))
+                TypesView(state: TypesViewState(backgroundNumber: state.$backgroundNumber, types: state.types))
                     .padding([.horizontal], 60)
             } // HSTACK
         } // VSTACK

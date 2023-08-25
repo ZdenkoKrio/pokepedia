@@ -6,11 +6,14 @@
 //
 
 import SwiftUI
+import SimpleToast
 
 struct PokeListSceneState: DynamicProperty {
     @EnvironmentObject private var rowPokemonsObject: RowPokemonsObservableObject
     @State var showFavorites: Bool = false
     @State var favorites: [String] = []
+    @State var showToast: Bool = false
+    @State var toastLabel: String = ""
     
     var rowPokemons: [RowPokemon] {
         rowPokemonsObject.rowPokemons
@@ -31,4 +34,9 @@ struct PokeListSceneState: DynamicProperty {
     func favoritRows() -> [RowPokemon] {
         rowPokemons.filter{ favorites.contains($0.name) }
     }
+    
+    let toastOptions = SimpleToastOptions(
+            hideAfter: 1,
+            modifierType: .scale
+        )
 }

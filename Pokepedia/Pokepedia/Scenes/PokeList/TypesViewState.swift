@@ -8,5 +8,10 @@
 import SwiftUI
 
 struct TypesViewState: DynamicProperty {
+    @Binding var backgroundNumber: Int
     let types: [PossibleTypes]
+    
+    func setBackground(num: Int) -> Void {
+        backgroundNumber = num
+    }
 }
