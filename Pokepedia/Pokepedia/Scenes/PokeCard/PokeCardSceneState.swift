@@ -10,8 +10,6 @@ import SwiftUI
 struct PokeCardSceneState: DynamicProperty {
     @EnvironmentObject private var pokemonObject: PokemonObservableObject
     
-    @State var isFav: Bool
-    @Binding var favorites: [Int]
     let url: String
     
     var pokemon: Pokemon? {
@@ -34,8 +32,6 @@ struct PokeCardSceneState: DynamicProperty {
         let nestedTypes = pokemon?.types ?? []
         var result: [PossibleTypes] = []
         for nType in nestedTypes {
-            print("\(pokemon?.types[0].type.name ?? "nothing")")
-            print(pokemon?.name)
             result.append(PossibleTypes(rawValue: nType.type.name)!)
         }
         return result

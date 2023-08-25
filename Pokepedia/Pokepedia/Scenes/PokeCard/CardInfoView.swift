@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct CardInfoView: View {
+    @EnvironmentObject var coordinator: Coordinator
     let state: CardInfoViewState
     
     var body: some View {
@@ -24,9 +25,7 @@ struct CardInfoView: View {
             .shadow(radius: 25)
             .padding()
             .sheet(isPresented: state.$isPresentingStats) {
-                CardStatsView(state: CardStatsViewState(stats: state.stats))
-                    .presentationDetents([.medium])
-                    .presentationDragIndicator(.visible)
+                coordinator.statsScene(state: CardStatsViewState(stats: state.stats))
             } // SHEET
         } // VSTACK
     }

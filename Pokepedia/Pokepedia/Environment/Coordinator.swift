@@ -18,13 +18,19 @@ final class Coordinator: ObservableObject {
         PokeCardScene(state: state)
     }
     
-    var evolveScene: some View {
-        Text("Zatím tady nic není")
-            .presentationDetents([.medium, .large])
-            .presentationDragIndicator(.visible)
+    func evolveScene(state: EvolveSceneState) -> some View {
+       EvolveScene(state: state)
     }
     
     func statsScene(state: CardStatsViewState) -> some View {
         CardStatsView(state: state)
+            .presentationDetents([.medium])
+            .presentationDragIndicator(.visible)
+    }
+    
+    func favoritesScene(state: FavoritesSceneState) -> some View {
+        FavoritesScene(state: state)
+            .presentationDetents([.large])
+            .presentationDragIndicator(.visible)
     }
 }

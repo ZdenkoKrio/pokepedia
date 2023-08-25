@@ -16,9 +16,8 @@ struct PokeListScene: View {
             Group {
                 if state.isRowPokemonsEmpty {
                     List(state.rowPokemons, id: \.url) { pokemon in
-                        // TODO isFav is dump parameter
-                        NavigationLink(destination: coordinator.pokeCardScene(state: PokeCardSceneState(isFav: false, favorites: state.$favorites, url: pokemon.url))) {
-                            PokeRowView(state: PokeRowViewState(url: pokemon.url, name: pokemon.name))
+                        NavigationLink(destination: coordinator.pokeCardScene(state: PokeCardSceneState(url: pokemon.url))) {
+                            PokeRowView(state: PokeRowViewState(url: pokemon.url, name: pokemon.name, favorites: state.$favorites, isFav: state.favorites.contains(pokemon.name)))
                         } // LINK
                     } // LIST
                     .listStyle(.plain)
@@ -39,9 +38,7 @@ struct PokeListScene: View {
         } // NAVIGATION
         .task{await state.fetch()}
         .sheet(isPresented: state.$showFavorites) {
-            Text("Zatím tady nic neni.")
-                .presentationDetents([.medium, .large])
-                .presentationDragIndicator(.visible)
+            coordinator.favoritesScene(state: FavoritesSceneState(favorites: state.$favorites, favoritRowPokemons: state.favoritRows()))
         } // SHEET
     }
 }

@@ -10,7 +10,7 @@ import SwiftUI
 struct PokeListSceneState: DynamicProperty {
     @EnvironmentObject private var rowPokemonsObject: RowPokemonsObservableObject
     @State var showFavorites: Bool = false
-    @State var favorites: [Int] = []
+    @State var favorites: [String] = []
     
     var rowPokemons: [RowPokemon] {
         rowPokemonsObject.rowPokemons
@@ -22,5 +22,13 @@ struct PokeListSceneState: DynamicProperty {
     
     func fetch() async {
        await rowPokemonsObject.loadData()
+    }
+    
+    func fetchFavorites() {
+        print("Load from memory")
+    }
+    
+    func favoritRows() -> [RowPokemon] {
+        rowPokemons.filter{ favorites.contains($0.name) }
     }
 }

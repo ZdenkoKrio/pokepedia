@@ -38,10 +38,13 @@ struct PokeRowView: View {
                 //.defaultSrcllAnchor(.center)
             } // VSTACK
             VStack {
-                Image(systemName: "star")
+                Image(systemName: state.isFav ? "star.fill" : "star")
                     .resizable()
                     .aspectRatio(contentMode: .fill)
                     .frame(width: 30, height: 30)
+                    .onTapGesture {
+                        state.favoritToggle()
+                    }
                 Spacer()
             }
         } // HSTACK
@@ -52,6 +55,6 @@ struct PokeRowView: View {
 
 struct PokeRowView_Previews: PreviewProvider {
     static var previews: some View {
-        PokeRowView(state: PokeRowViewState(url: "https://pokeapi.co/api/v2/pokemon/3/", name: "Ivisaur"))
+        PokeRowView(state: PokeRowViewState(url: "https://pokeapi.co/api/v2/pokemon/3/", name: "Ivisaur", favorites: .constant([]), isFav: false))
     }
 }

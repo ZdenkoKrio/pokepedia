@@ -8,15 +8,37 @@
 import SwiftUI
 
 struct EvolveScene: View {
-    let state: EvolveSceneState
+    var state: EvolveSceneState
     
     var body: some View {
-        Text("EVOLVS")
+        VStack(alignment: .center) {
+            Text("Evolutions")
+                .font(.largeTitle)
+                .fontWeight(.bold)
+            ScrollView(.horizontal) {
+                HStack {
+                    Group {
+                        if !state.isEvolutionEmpty {
+                            List(state.evolution ?? [], id: \.name) { pokemon in
+                                VStack {
+                                    CardTitleView(state: CardTitleViewState(number: pokemon.id, name: pokemon.name))
+                                    PokeImageView(state: PokeImageViewState(shiny: .constant(false), pokemon: pokemon.id, types: state.getTypes(pokemon: pokemon)))
+                                } // VSTACK
+                            } // LIST
+                            .listStyle(.plain)
+                        } else {
+                            ProgressView()
+                        } // ELSE
+                    } // GROUP
+                } // HSTACK
+            } // SCROLL
+            .task{await state.fetch()}
+        } // VSTACK
     }
 }
 
 struct EvolveScene_Previews: PreviewProvider {
     static var previews: some View {
-        EvolveScene(state: EvolveSceneState())
+        EvolveScene(state: EvolveSceneState(number: 1))
     }
 }

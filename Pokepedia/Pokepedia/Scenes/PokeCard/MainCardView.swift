@@ -26,7 +26,7 @@ struct MainCardView: View {
                 .padding(40)
                 
             ZStack (alignment: .bottomTrailing) {
-                EvolutionButtonView()
+                EvolutionButtonView(state: EvolutionButtonViewState(number: state.number))
                     .padding(50)
                     .padding([.top], 240)
                     

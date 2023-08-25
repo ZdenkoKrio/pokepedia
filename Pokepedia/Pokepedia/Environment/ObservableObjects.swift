@@ -11,13 +11,19 @@ import Foundation
 final class ObservableObjects {
     let rowPokemons: RowPokemonsObservableObject
     let pokemon: PokemonObservableObject
+    let species: SpeciesObservableObject
+    let evolutionChain: EvolutionChainObservableObject
 
     init(
         rowPokemons: RowPokemonsObservableObject,
-        pokemon: PokemonObservableObject
+        pokemon: PokemonObservableObject,
+        species: SpeciesObservableObject,
+        evolutionChain: EvolutionChainObservableObject
     ) {
         self.rowPokemons = rowPokemons
         self.pokemon = pokemon
+        self.species = species
+        self.evolutionChain = evolutionChain
     }
 }
 
@@ -26,10 +32,14 @@ extension ObservableObjects {
     convenience init(services: Services) {
         let rowPokemons = RowPokemonsObservableObject()
         let pokemon = PokemonObservableObject()
+        let species = SpeciesObservableObject()
+        let evolutionChain = EvolutionChainObservableObject()
 
         self.init(
             rowPokemons: rowPokemons,
-            pokemon: pokemon
+            pokemon: pokemon,
+            species: species,
+            evolutionChain: evolutionChain
         )
     }
 }
