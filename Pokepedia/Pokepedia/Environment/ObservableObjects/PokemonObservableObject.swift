@@ -10,7 +10,12 @@ import Foundation
 final class PokemonObservableObject: ObservableObject {
     @Published var pokemon: Pokemon? // = Pokemon.mock
     
-    private let pokemonService: PokemonService = ProductionPokemonService()
+    private let pokemonService: PokemonService
+    
+    init(pokemonService: PokemonService, pokemon: Pokemon? = nil) {
+        self.pokemonService = pokemonService
+        self.pokemon = pokemon
+    }
     
     func loadData(number: Int) async {
         do {

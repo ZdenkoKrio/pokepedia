@@ -30,10 +30,10 @@ final class ObservableObjects {
 // MARK: - ObservableObjects + Extension
 extension ObservableObjects {
     convenience init(services: Services) {
-        let rowPokemons = RowPokemonsObservableObject()
-        let pokemon = PokemonObservableObject()
-        let species = SpeciesObservableObject()
-        let evolutionChain = EvolutionChainObservableObject()
+        let rowPokemons = RowPokemonsObservableObject(rowPokemonsService: services.rowPokemonsService)
+        let pokemon = PokemonObservableObject(pokemonService: services.pokemonService)
+        let species = SpeciesObservableObject(speciesService: services.speciesService)
+        let evolutionChain = EvolutionChainObservableObject(evolutionChainService: services.evolveService)
 
         self.init(
             rowPokemons: rowPokemons,
