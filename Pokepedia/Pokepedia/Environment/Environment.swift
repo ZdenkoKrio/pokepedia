@@ -15,6 +15,8 @@ private struct Environment: ViewModifier {
         content
             .environmentObject(objects.rowPokemons)
             .environmentObject(objects.pokemon)
+            .environmentObject(objects.species)
+            .environmentObject(objects.evolutionChain)
             .environmentObject(coordinator)
     }
 }

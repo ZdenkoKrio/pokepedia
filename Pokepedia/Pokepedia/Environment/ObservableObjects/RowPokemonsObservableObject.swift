@@ -8,9 +8,14 @@
 import Foundation
 
 final class RowPokemonsObservableObject: ObservableObject {
-    @Published var rowPokemons: [RowPokemon] = []
+    @Published var rowPokemons: [RowPokemon]
     
-    private let rowPokemonsService: RowPokemonsService = ProductionRowPokemonsService()
+    private let rowPokemonsService: RowPokemonsService
+    
+    init(rowPokemonsService: RowPokemonsService, rowPokemons: [RowPokemon] = []) {
+        self.rowPokemonsService = rowPokemonsService
+        self.rowPokemons = rowPokemons
+    }
     
     func loadData() async {
         do {

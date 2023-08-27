@@ -10,7 +10,12 @@ import Foundation
 final class EvolutionChainObservableObject: ObservableObject {
     @Published var evolutionChain: [Pokemon]?
     
-    private let evolutionChainService: EvolveService = ProductionEvolveService()
+    private let evolutionChainService: EvolveService
+    
+    init(evolutionChainService: EvolveService, evolutionChain: [Pokemon]? = nil) {
+        self.evolutionChainService = evolutionChainService
+        self.evolutionChain = evolutionChain
+    }
     
     func loadData(number: Int) async {
         do {

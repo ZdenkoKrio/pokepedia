@@ -14,22 +14,15 @@ protocol EvolveService {
 
 class ProductionEvolveService: EvolveService {
     
-    @MainActor
-    private func species(number: Int) async throws -> PokemonSpecies {
-        let sesion = URLSession.shared
-        let url = URL(string: "https://pokeapi.co/api/v2/pokemon-species/\(number)")!
-        var request = URLRequest(url: url)
-        request.httpMethod = "GET"
-        let (data, response) = try await sesion.data(for: request)
-        return try JSONDecoder().decode(PokemonSpecies.self, from: data)
+    let speciesService: SpeciesService
+    
+    init(speciesService: SpeciesService) {
+        self.speciesService = speciesService
     }
     
     @MainActor
     func evolve(number: Int) async throws -> [Pokemon] {
-        
-        
-        var spec = try await species(number: number)
-        
+        var spec = try await speciesService.species(number: number)
         let sesion = URLSession.shared
         //let url = URL(string: "https://pokeapi.co/api/v2/evolution-chain/\(number)")!
         let url = URL(string: spec.evolutionChain.url)!
