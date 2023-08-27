@@ -17,6 +17,7 @@ final class EvolutionChainObservableObject: ObservableObject {
         self.evolutionChain = evolutionChain
     }
     
+    @MainActor
     func loadData(number: Int) async {
         do {
             evolutionChain = try await evolutionChainService.evolve(number: number)

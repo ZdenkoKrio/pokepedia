@@ -14,13 +14,12 @@ protocol RowPokemonsService {
 
 
 class ProductionRowPokemonsService: RowPokemonsService {
-    @MainActor
     func pokemons() async throws -> Pokemons {
-        let sesion = URLSession.shared
+        let session = URLSession.shared
         let url = URL(string: "https://pokeapi.co/api/v2/pokemon?limit=10000&offset=0")!
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
-        let (data, response) = try await sesion.data(for: request)
+        let (data, response) = try await session.data(for: request)
         return try JSONDecoder().decode(Pokemons.self, from: data)
     }
 }

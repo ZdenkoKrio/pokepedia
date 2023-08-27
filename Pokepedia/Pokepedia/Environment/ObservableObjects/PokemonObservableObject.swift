@@ -17,6 +17,7 @@ final class PokemonObservableObject: ObservableObject {
         self.pokemon = pokemon
     }
     
+    @MainActor
     func loadData(number: Int) async {
         do {
             pokemon = try await pokemonService.pokemon(number: number)

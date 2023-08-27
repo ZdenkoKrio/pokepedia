@@ -13,14 +13,13 @@ protocol PokemonService {
 
 
 class ProductionPokemonService: PokemonService {
-    @MainActor
     // TODO wrapper for this number???
     func pokemon(number: Int) async throws -> Pokemon {
-        let sesion = URLSession.shared
+        let session = URLSession.shared
         let url = URL(string: "https://pokeapi.co/api/v2/pokemon/\(number)")!
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
-        let (data, response) = try await sesion.data(for: request)
+        let (data, _) = try await session.data(for: request)
         return try JSONDecoder().decode(Pokemon.self, from: data)
     }
 }

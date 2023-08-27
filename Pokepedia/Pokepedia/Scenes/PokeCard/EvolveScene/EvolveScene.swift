@@ -18,21 +18,18 @@ struct EvolveScene: View {
             ScrollView(.horizontal) {
                 HStack {
                     Group {
-                        /*
-                        if !state.isEvolutionEmpty {
-                            List(state.evolution ?? []) { pokemon in
+                        if state.isLoaded {
+                            ForEach(state.evolution, id: \.name) { pokemon in
+                                // why LIST is display nothing? and Foreach is working?
                                 VStack {
                                     CardTitleView(state: CardTitleViewState(number: pokemon.id, name: pokemon.name))
-                                    
-                                    PokeImageView(state: PokeImageViewState(shiny: .constant(false), backgroundColor: Gradient(colors: [Color(""), Color(pokemon.types[0].rawValue), Color("Dark_\(pokemon.types[0].rawValue)")]), pokemon: pokemon.id))
-                                     
+                                    MainCardView(state: MainCardViewState(isEvolutionsAlowed: false, number: pokemon.id, types: state.getTypes(pokemon: pokemon)))
                                 } // VSTACK
                             } // LIST
                             .listStyle(.plain)
                         } else {
                             ProgressView()
                         } // ELSE
-                        */
                     } // GROUP
                 } // HSTACK
             } // SCROLL

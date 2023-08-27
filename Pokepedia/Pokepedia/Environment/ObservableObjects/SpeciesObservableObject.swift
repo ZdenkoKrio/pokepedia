@@ -17,6 +17,7 @@ final class SpeciesObservableObject: ObservableObject {
         self.pokemonSpecies = pokemonSpecies
     }
     
+    @MainActor
     func loadData(number: Int) async {
         do {
             pokemonSpecies = try await speciesService.species(number: number)

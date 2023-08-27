@@ -31,7 +31,7 @@ extension Services {
         let rowPokemonsService = ProductionRowPokemonsService()
         let pokemonService = ProductionPokemonService()
         let speciesService = ProductionSpeciesService()
-        let evolveService = ProductionEvolveService(speciesService: speciesService)
+        let evolveService = ProductionEvolveService(speciesService: speciesService, pokemonService: pokemonService)
 
         self.init(
             rowPokemonsService: rowPokemonsService,

@@ -26,13 +26,13 @@ struct MainCardView: View {
         } // VSTACK
             ShinyButtonView(state: ShinyButtonViewState(shiny: state.$shiny))
                 .padding(40)
-                
-            ZStack (alignment: .bottomTrailing) {
-                EvolutionButtonView(state: EvolutionButtonViewState(number: state.number))
-                    .padding(50)
-                    .padding([.top], 240)
-                    
-            }
+            if state.isEvolutionsAlowed {
+                ZStack (alignment: .bottomTrailing) {
+                    EvolutionButtonView(state: EvolutionButtonViewState(number: state.number))
+                        .padding(50)
+                        .padding([.top], 240)
+                } // ZSTACK
+            } // IF
         } // ZSTACK
     }
 }

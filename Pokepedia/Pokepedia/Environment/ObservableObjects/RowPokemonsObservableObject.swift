@@ -17,6 +17,7 @@ final class RowPokemonsObservableObject: ObservableObject {
         self.rowPokemons = rowPokemons
     }
     
+    @MainActor
     func loadData() async {
         do {
             rowPokemons = try await rowPokemonsService.pokemons().pokemons

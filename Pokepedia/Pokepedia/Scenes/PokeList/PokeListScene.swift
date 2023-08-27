@@ -37,7 +37,9 @@ struct PokeListScene: View {
                 } // TOOLBAR ITEM
             } // TOOLBAR
         } // NAVIGATION
-        .task{await state.fetch()}
+        .task{
+            await state.fetch()
+        }
         .sheet(isPresented: state.$showFavorites) {
             coordinator.favoritesScene(state: FavoritesSceneState(favorites: state.$favorites, favoritRowPokemons: state.favoritRows()))
         } // SHEET

@@ -8,18 +8,18 @@
 import Foundation
 
 struct EvolutionChain: Decodable {
-    let chain: [EvolvesTo] // generally only one item
+    let chain: EvolvesTo 
 }
 
 
 extension EvolutionChain {
-    static let mock: EvolutionChain = EvolutionChain(chain: [
+    static let mock: EvolutionChain = EvolutionChain(chain:
         EvolvesTo(evolvesTo: [
             EvolvesTo(evolvesTo: [
                 EvolvesTo(evolvesTo: [
                 ], isBaby: false, species: Species(name: "venusaur", url: "https://pokeapi.co/api/v2/pokemon-species/3/"))
             ], isBaby: false, species: Species(name: "ivysaur", url: "https://pokeapi.co/api/v2/pokemon-species/2/"))
         ], isBaby: false, species: Species(name: "bulbasaur", url: "https://pokeapi.co/api/v2/pokemon-species/1/"))
-    ])
+    )
     
 }
