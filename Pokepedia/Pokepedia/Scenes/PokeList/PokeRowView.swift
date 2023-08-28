@@ -38,16 +38,14 @@ struct PokeRowView: View {
                 //TypesView(types: pokemon.types)
                 //.defaultSrcllAnchor(.center)
             } // VSTACK
-            VStack {
-                Image(systemName: state.isFav ? "star.fill" : "star")
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
-                    .frame(width: 30, height: 30)
-                    .onTapGesture {
-                        state.favoritToggle()
-                    }
-                Spacer()
-            } // VSTACK
+            Spacer()
+            Image(systemName: state.isFav ? "star.fill" : "star")
+                .resizable()
+                .aspectRatio(contentMode: .fill)
+                .frame(width: 30, height: 30)
+                .onTapGesture {
+                    state.favoritToggle()
+                }
         } // HSTACK
         .padding(10)
     }
