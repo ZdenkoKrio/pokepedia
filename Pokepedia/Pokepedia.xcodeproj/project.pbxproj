@@ -260,7 +260,6 @@
 			children = (
 				C888E2AB2A9C9250002D0E56 /* Pokepedia.entitlements */,
 				C8E197B52A95575500FA3137 /* Errors */,
-				C8E1979D2A9539D700FA3137 /* Extensions */,
 				C8E197982A95373C00FA3137 /* Environment */,
 				C8E197972A95372F00FA3137 /* Services */,
 				C838BB982A7692350042FFCE /* Scenes */,
@@ -424,13 +423,6 @@
 				C8E197A72A95421400FA3137 /* Coordinator.swift */,
 			);
 			path = Environment;
-			sourceTree = "<group>";
-		};
-		C8E1979D2A9539D700FA3137 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Extensions;
 			sourceTree = "<group>";
 		};
 		C8E197A62A9541FE00FA3137 /* ObservableObjects */ = {

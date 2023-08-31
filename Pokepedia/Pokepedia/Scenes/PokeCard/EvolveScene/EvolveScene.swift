@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import PagingView
 
 struct EvolveScene: View {
     var state: EvolveSceneState
@@ -15,24 +16,23 @@ struct EvolveScene: View {
             Text("Evolutions")
                 .font(.largeTitle)
                 .fontWeight(.bold)
-            ScrollView(.horizontal) {
-                HStack {
-                    Group {
-                        if state.isLoaded {
-                            ForEach(state.evolution, id: \.name) { pokemon in
-                                // why LIST is display nothing? and Foreach is working?
-                                VStack {
-                                    CardTitleView(state: CardTitleViewState(number: pokemon.id, name: pokemon.name))
-                                    MainCardView(state: MainCardViewState(isEvolutionsAlowed: false, number: pokemon.id, types: state.getTypes(pokemon: pokemon)))
-                                } // VSTACK
-                            } // LIST
-                            .listStyle(.plain)
-                        } else {
-                            ProgressView()
-                        } // ELSE
-                    } // GROUP
-                } // HSTACK
-            } // SCROLL
+            Group {
+                if state.isLoaded {
+                    TabView {
+                        ForEach(state.evolution, id: \.name) { pokemon in
+                            VStack {
+                                CardTitleView(state: CardTitleViewState(number: pokemon.id, name: pokemon.name))
+                                MainCardView(state: MainCardViewState(isEvolutionsAlowed: false, number: pokemon.id, types: state.getTypes(pokemon: pokemon)))
+                            } // VSTACK
+                                    
+                        } // LIST
+                        .listStyle(.plain)
+                    } // TAB
+                    .tabViewStyle(.page(indexDisplayMode: .never))
+                } else {
+                    ProgressView()
+                } // ELSE
+            } // GROUP
             .task{await state.fetch()}
         } // VSTACK
     }
