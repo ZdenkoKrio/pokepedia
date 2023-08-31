@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import PagingView
 
 struct EvolveScene: View {
     var state: EvolveSceneState
