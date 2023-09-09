@@ -18,7 +18,7 @@ struct EvolveSceneState: DynamicProperty {
     }
     
     var isLoaded: Bool {
-        !evolution.isEmpty
+        evolution.contains { $0.id == number}
     }
     
     func getTypes(pokemon: Pokemon) -> [PossibleTypes] {

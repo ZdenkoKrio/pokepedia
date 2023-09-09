@@ -13,10 +13,15 @@ struct CardStatsView: View {
     var body: some View {
         List(state.stats, id: \.info.url) {stat in
             HStack {
-                Text(stat.info.name)
+                Text(stat.info.name.capitalized)
+                    .font(.title)
+                    .fontWeight(.bold)
                 Spacer()
                 Text("\(stat.value)")
+                    .font(.title2)
+                    .fontWeight(.bold)
             } // HSTACK
+            .padding(5)
         } // LIST
     }
 }

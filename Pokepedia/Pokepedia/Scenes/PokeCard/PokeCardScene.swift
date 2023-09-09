@@ -22,7 +22,9 @@ struct PokeCardScene: View {
                 } // IF
             } // VSTACK
         } // SCROLL
-        .task{await state.fetch()}
+        .task{
+            await state.fetch()
+        }
     }
 }
 

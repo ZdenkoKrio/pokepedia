@@ -14,6 +14,14 @@ final class Coordinator: ObservableObject {
         PokeListScene(state: PokeListSceneState())
     }
     
+    var movesListScene: some View {
+        MovesListScene()
+    }
+    
+    var typesListScene: some View {
+        TypesListScene()
+    }
+    
     func pokeCardScene(state: PokeCardSceneState) -> some View {
         PokeCardScene(state: state)
     }

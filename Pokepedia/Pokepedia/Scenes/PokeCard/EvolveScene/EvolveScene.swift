@@ -12,7 +12,7 @@ struct EvolveScene: View {
     
     var body: some View {
         VStack(alignment: .center) {
-            Text("Evolutions")
+            Text("Evolution Chain")
                 .font(.largeTitle)
                 .fontWeight(.bold)
             Group {

@@ -16,9 +16,9 @@ struct PokeListScene: View {
         NavigationStack {
             Group {
                 if state.isRowPokemonsEmpty {
-                    List(state.rowPokemons, id: \.url) { pokemon in
+                    List(state.searchResults, id: \.url) { pokemon in
                         NavigationLink(destination: coordinator.pokeCardScene(state: PokeCardSceneState(url: pokemon.url))) {
-                            PokeRowView(state: PokeRowViewState(url: pokemon.url, name: pokemon.name, favorites: state.$favorites, showToast: state.$showToast, toastLabel: state.$toastLabel, isFav: state.favorites.contains(pokemon.name)))
+                            PokeRowView(state: PokeRowViewState(url: pokemon.url, name: pokemon.name.capitalized, favorites: state.$favorites, showToast: state.$showToast, toastLabel: state.$toastLabel, isFav: state.favorites.contains(pokemon.name)))
                         } // LINK
                     } // LIST
                     .listStyle(.plain)
@@ -26,17 +26,19 @@ struct PokeListScene: View {
                     ProgressView()
                 } // ELSE
             } // GROUP
+            .searchable(text: state.$searchName, prompt: "Type name or number")
             .navigationTitle("Pokepedia")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .automatic) {
                     Button(action: {state.showFavorites = true}) {
                         Label("", systemImage: "heart.fill")
-                            .foregroundColor(.black)
+                            .foregroundColor(.blue)
                     } // BUTTON
                 } // TOOLBAR ITEM
             } // TOOLBAR
         } // NAVIGATION
+        
         .task{
             await state.fetch()
         }

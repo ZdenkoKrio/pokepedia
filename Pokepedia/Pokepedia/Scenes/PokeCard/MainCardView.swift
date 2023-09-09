@@ -19,7 +19,6 @@ struct MainCardView: View {
                                                     types: state.types
                                                    ))
             HStack(alignment: .center) {
-                Spacer()
                 TypesView(state: TypesViewState(backgroundNumber: state.$backgroundNumber, types: state.types))
                     .padding([.horizontal], 60)
             } // HSTACK

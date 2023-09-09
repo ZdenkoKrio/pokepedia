@@ -9,7 +9,7 @@ import SwiftUI
 import SimpleToast
 
 struct PokeRowView: View {
-    let state: PokeRowViewState
+    var state: PokeRowViewState
     
     var body: some View {
         HStack {
@@ -35,8 +35,7 @@ struct PokeRowView: View {
                         .fontWeight(.bold)
                         .font(.system(size: 23))
                 } // HSTACK
-                //TypesView(types: pokemon.types)
-                //.defaultSrcllAnchor(.center)
+                TypesView(state: TypesViewState(backgroundNumber: .constant(0), types: state.types))
             } // VSTACK
             Spacer()
             Image(systemName: state.isFav ? "star.fill" : "star")
@@ -48,6 +47,9 @@ struct PokeRowView: View {
                 }
         } // HSTACK
         .padding(10)
+        .task {
+            await state.fetch()
+        }
     }
 }
 

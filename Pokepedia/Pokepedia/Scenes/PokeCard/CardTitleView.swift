@@ -17,7 +17,7 @@ struct CardTitleView: View {
                 .font(.system(size: 30))
                 .padding()
             //Spacer()
-            Text(state.name)
+            Text(state.name.capitalized)
                 .fontWeight(.bold)
                 .font(.system(size: 30))
         } // HSTACK
