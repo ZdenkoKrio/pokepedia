@@ -12,7 +12,7 @@ struct Pokemon: Decodable {
     let name: String
     let height: Int
     let weight: Int
-    let species: Species
+    let species: RowData
     let types: [TypeSlot]
     let stats: [Stat]
 }
@@ -22,13 +22,13 @@ extension Pokemon {
                                        name: "charmander",
                                        height: 120,
                                        weight: 50,
-                                       species: Species(name: "charmander", url: ""),
-                                       types: [TypeSlot(type: PokeType(name: "grass", url: "")),
-                                               TypeSlot(type: PokeType(name: "fire", url: ""))],
-                                       stats: [Stat(value: 10, effort: 0, info: StatInfo(name: "attack", url: "")),
-                                               Stat(value: 10, effort: 0, info: StatInfo(name: "attack-special", url: "")),
-                                               Stat(value: 10, effort: 0, info: StatInfo(name: "defense", url: "")),
-                                               Stat(value: 10, effort: 0, info: StatInfo(name: "defense-specil", url: "")),
-                                               Stat(value: 10, effort: 0, info: StatInfo(name: "speed", url: "")),
-                                               Stat(value: 10, effort: 0, info: StatInfo(name: "hp", url: ""))])
+                                       species: RowData(name: "charmander", url: ""),
+                                       types: [TypeSlot(type: RowData(name: "grass", url: "")),
+                                               TypeSlot(type: RowData(name: "fire", url: ""))],
+                                       stats: [Stat(value: 10, effort: 0, info: RowData(name: "attack", url: "")),
+                                               Stat(value: 10, effort: 0, info: RowData(name: "attack-special", url: "")),
+                                               Stat(value: 10, effort: 0, info: RowData(name: "defense", url: "")),
+                                               Stat(value: 10, effort: 0, info: RowData(name: "defense-specil", url: "")),
+                                               Stat(value: 10, effort: 0, info: RowData(name: "speed", url: "")),
+                                               Stat(value: 10, effort: 0, info: RowData(name: "hp", url: ""))])
 }

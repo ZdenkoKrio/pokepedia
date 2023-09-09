@@ -10,7 +10,7 @@ import Foundation
 struct Stat: Decodable {
     let value: Int
     let effort: Int
-    let info: StatInfo
+    let info: RowData
     
     enum CodingKeys: String, CodingKey {
         case value = "base_stat"

@@ -18,10 +18,10 @@ struct MainScene: View {
                         NavigationLink(destination: coordinator.pokeListScene) {
                             NavigationButtonView(name: "Pokemons")
                         } // LINK
-                        NavigationLink(destination: coordinator.pokeListScene) {
+                        NavigationLink(destination: coordinator.movesListScene) {
                             NavigationButtonView(name: "Moves")
                         } // LINK
-                        NavigationLink(destination: coordinator.pokeListScene) {
+                        NavigationLink(destination: coordinator.typesListScene) {
                             NavigationButtonView(name: "Types")
                         } // LINK
                         Spacer()

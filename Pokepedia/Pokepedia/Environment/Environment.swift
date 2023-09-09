@@ -13,7 +13,7 @@ private struct Environment: ViewModifier {
 
     func body(content: Content) -> some View {
         content
-            .environmentObject(objects.rowPokemons)
+            .environmentObject(objects.menuList)
             .environmentObject(objects.pokemon)
             .environmentObject(objects.species)
             .environmentObject(objects.evolutionChain)

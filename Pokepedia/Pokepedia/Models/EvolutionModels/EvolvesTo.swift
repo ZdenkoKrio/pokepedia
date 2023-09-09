@@ -10,7 +10,7 @@ import Foundation
 struct EvolvesTo: Decodable {
     let evolvesTo: [EvolvesTo]
     let isBaby: Bool
-    let species: Species
+    let species: RowData
     
     enum CodingKeys: String, CodingKey {
         case evolvesTo = "evolves_to"

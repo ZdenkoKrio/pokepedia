@@ -8,32 +8,23 @@
 import SwiftUI
 import SimpleToast
 
-extension String {
-    var isNumber: Bool {
-        return self.allSatisfy { character in
-            character.isWholeNumber
-
-        }
-    }
-}
-
 struct PokeListSceneState: DynamicProperty {
-    @EnvironmentObject private var rowPokemonsObject: RowPokemonsObservableObject
+    @EnvironmentObject private var menuListObject: MenuListObservableObject
     @State var showFavorites: Bool = false
     @State var favorites: [String] = []
     @State var showToast: Bool = false
     @State var toastLabel: String = ""
     @State var searchName: String = ""
     
-    var rowPokemons: [RowPokemon] {
-        rowPokemonsObject.rowPokemons
+    var rowPokemons: [RowData] {
+        menuListObject.rows
     }
     
     var isRowPokemonsEmpty: Bool {
         !rowPokemons.isEmpty
     }
     
-    var searchResults: [RowPokemon] {
+    var searchResults: [RowData] {
         if searchName.isEmpty {
             return rowPokemons
         } else {
@@ -51,14 +42,14 @@ struct PokeListSceneState: DynamicProperty {
     }
     
     func fetch() async {
-       await rowPokemonsObject.loadData()
+       await menuListObject.loadData(urlString: "https://pokeapi.co/api/v2/pokemon?limit=100000&offset=0")
     }
     
     func fetchFavorites() {
         print("Load from memory")
     }
     
-    func favoritRows() -> [RowPokemon] {
+    func favoritRows() -> [RowData] {
         rowPokemons.filter{ favorites.contains($0.name.lowercased()) }
     }
     

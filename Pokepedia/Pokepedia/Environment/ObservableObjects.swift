@@ -9,18 +9,18 @@ import Foundation
 
 // MARK: - ObservableObjects
 final class ObservableObjects {
-    let rowPokemons: RowPokemonsObservableObject
+    let menuList: MenuListObservableObject
     let pokemon: PokemonObservableObject
     let species: SpeciesObservableObject
     let evolutionChain: EvolutionChainObservableObject
 
     init(
-        rowPokemons: RowPokemonsObservableObject,
+        menuList: MenuListObservableObject,
         pokemon: PokemonObservableObject,
         species: SpeciesObservableObject,
         evolutionChain: EvolutionChainObservableObject
     ) {
-        self.rowPokemons = rowPokemons
+        self.menuList = menuList
         self.pokemon = pokemon
         self.species = species
         self.evolutionChain = evolutionChain
@@ -30,13 +30,13 @@ final class ObservableObjects {
 // MARK: - ObservableObjects + Extension
 extension ObservableObjects {
     convenience init(services: Services) {
-        let rowPokemons = RowPokemonsObservableObject(rowPokemonsService: services.rowPokemonsService)
+        let menuList = MenuListObservableObject(menuListService: services.menuListService)
         let pokemon = PokemonObservableObject(pokemonService: services.pokemonService)
         let species = SpeciesObservableObject(speciesService: services.speciesService)
         let evolutionChain = EvolutionChainObservableObject(evolutionChainService: services.evolveService)
 
         self.init(
-            rowPokemons: rowPokemons,
+            menuList: menuList,
             pokemon: pokemon,
             species: species,
             evolutionChain: evolutionChain

@@ -10,7 +10,7 @@ import SimpleToast
 
 struct FavoritesSceneState: DynamicProperty {
     @Binding var favorites: [String]
-    @State var favoritRowPokemons: [RowPokemon]
+    @State var favoritRowPokemons: [RowData]
     @State var toastLabel: String = ""
     @State var showToast: Bool = false
     

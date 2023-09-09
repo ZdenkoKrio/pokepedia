@@ -8,18 +8,18 @@
 import Foundation
 
 final class Services {
-    let rowPokemonsService: RowPokemonsService
+    let menuListService: MenuListService
     let pokemonService: PokemonService
     let evolveService: EvolveService
     let speciesService: SpeciesService
     
     init(
-        rowPokemonsService: RowPokemonsService,
+        menuListService: MenuListService,
         pokemonService: PokemonService,
         evolveService: EvolveService,
         speciesService: SpeciesService
     ) {
-        self.rowPokemonsService = rowPokemonsService
+        self.menuListService = menuListService
         self.pokemonService = pokemonService
         self.evolveService = evolveService
         self.speciesService = speciesService
@@ -28,13 +28,13 @@ final class Services {
 
 extension Services {
     convenience init() {
-        let rowPokemonsService = ProductionRowPokemonsService()
+        let menuListService = ProductionMenuListService()
         let pokemonService = ProductionPokemonService()
         let speciesService = ProductionSpeciesService()
         let evolveService = ProductionEvolveService(speciesService: speciesService, pokemonService: pokemonService)
 
         self.init(
-            rowPokemonsService: rowPokemonsService,
+            menuListService: menuListService,
             pokemonService: pokemonService,
             evolveService: evolveService,
             speciesService: speciesService
@@ -45,7 +45,7 @@ extension Services {
 // MARK: - Mocks
 extension Services {
     static let mock = Services(
-        rowPokemonsService: MockRowPokemonsService(),
+        menuListService: MockMenuListService(),
         pokemonService: MockPokemonService(),
         evolveService: MockEvolveService(),
         speciesService: MockSpeciesService()

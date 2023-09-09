@@ -7,12 +7,7 @@
 
 import Foundation
 
-struct RowPokemon: Decodable {
+struct RowData: Decodable {
     let name: String
     let url: String
-    
-    init(name: String, url: String) {
-        self.name = name
-        self.url = url
-    }
 }

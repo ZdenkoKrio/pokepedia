@@ -17,9 +17,9 @@ extension EvolutionChain {
         EvolvesTo(evolvesTo: [
             EvolvesTo(evolvesTo: [
                 EvolvesTo(evolvesTo: [
-                ], isBaby: false, species: Species(name: "venusaur", url: "https://pokeapi.co/api/v2/pokemon-species/3/"))
-            ], isBaby: false, species: Species(name: "ivysaur", url: "https://pokeapi.co/api/v2/pokemon-species/2/"))
-        ], isBaby: false, species: Species(name: "bulbasaur", url: "https://pokeapi.co/api/v2/pokemon-species/1/"))
+                ], isBaby: false, species: RowData(name: "venusaur", url: "https://pokeapi.co/api/v2/pokemon-species/3/"))
+            ], isBaby: false, species: RowData(name: "ivysaur", url: "https://pokeapi.co/api/v2/pokemon-species/2/"))
+        ], isBaby: false, species: RowData(name: "bulbasaur", url: "https://pokeapi.co/api/v2/pokemon-species/1/"))
     )
     
 }
