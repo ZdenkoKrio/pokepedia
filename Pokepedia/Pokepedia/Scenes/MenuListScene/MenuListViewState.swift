@@ -12,9 +12,11 @@ struct MenuListViewState: DynamicProperty {
     @State var searchName: String = ""
     let title: String
     let url: String
+    let menuType: MenuRow
+
     
     var rows: [RowData] {
-        menuListObject.rows
+        menuListObject.rows[menuType] ?? []
     }
     
     var isRowsEmpty: Bool {
@@ -32,7 +34,7 @@ struct MenuListViewState: DynamicProperty {
     }
     
     func fetch() async {
-       await menuListObject.loadData(urlString: url)
+       await menuListObject.loadData(dataChoice: menuType)
     }
 }
 

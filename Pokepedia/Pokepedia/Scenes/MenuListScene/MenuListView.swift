@@ -38,7 +38,7 @@ struct MenuListView<TargetView: View>: View {
 
 struct MenuListScene_Previews: PreviewProvider {
     static var previews: some View {
-        MenuListView(state: MenuListViewState(title: "Moves", url: "https://pokeapi.co/api/v2/move/1/"), nextView: MoveScene())
+        MenuListView(state: MenuListViewState(title: "Moves", url: "https://pokeapi.co/api/v2/move/1/", menuType: .move), nextView: MoveScene())
             .injectPreviewsEnvironment()
     }
 }

@@ -15,6 +15,7 @@
 		C81F00172AAD200A0032F371 /* MoveScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81F00162AAD200A0032F371 /* MoveScene.swift */; };
 		C81F00192AAD22100032F371 /* MenuRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81F00182AAD22100032F371 /* MenuRowView.swift */; };
 		C81F001B2AAD2A970032F371 /* TypeScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81F001A2AAD2A970032F371 /* TypeScene.swift */; };
+		C81F001F2AADA8400032F371 /* MenuRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81F001E2AADA8400032F371 /* MenuRow.swift */; };
 		C838BB022A768C820042FFCE /* PokepediaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C838BB012A768C820042FFCE /* PokepediaApp.swift */; };
 		C838BB042A768C820042FFCE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C838BB032A768C820042FFCE /* ContentView.swift */; };
 		C838BB062A768C830042FFCE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C838BB052A768C830042FFCE /* Assets.xcassets */; };
@@ -132,6 +133,7 @@
 		C81F00162AAD200A0032F371 /* MoveScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveScene.swift; sourceTree = "<group>"; };
 		C81F00182AAD22100032F371 /* MenuRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuRowView.swift; sourceTree = "<group>"; };
 		C81F001A2AAD2A970032F371 /* TypeScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeScene.swift; sourceTree = "<group>"; };
+		C81F001E2AADA8400032F371 /* MenuRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuRow.swift; sourceTree = "<group>"; };
 		C838BAFE2A768C820042FFCE /* Pokepedia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pokepedia.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C838BB012A768C820042FFCE /* PokepediaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokepediaApp.swift; sourceTree = "<group>"; };
 		C838BB032A768C820042FFCE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -275,6 +277,14 @@
 			path = MoveScene;
 			sourceTree = "<group>";
 		};
+		C81F001D2AADA81F0032F371 /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				C81F001E2AADA8400032F371 /* MenuRow.swift */,
+			);
+			path = Enums;
+			sourceTree = "<group>";
+		};
 		C81FFFFF2AAC9D460032F371 /* MainScene */ = {
 			isa = PBXGroup;
 			children = (
@@ -311,6 +321,7 @@
 		C838BB002A768C820042FFCE /* Pokepedia */ = {
 			isa = PBXGroup;
 			children = (
+				C81F001D2AADA81F0032F371 /* Enums */,
 				C81F00112AAD1B800032F371 /* Extensions */,
 				C888E2AB2A9C9250002D0E56 /* Pokepedia.entitlements */,
 				C8E197B52A95575500FA3137 /* Errors */,
@@ -723,6 +734,7 @@
 				C8E197DD2A9784D900FA3137 /* SpeciesService.swift in Sources */,
 				C8E1979F2A953D0400FA3137 /* RowData.swift in Sources */,
 				C8E197D22A976FAD00FA3137 /* FavoritesScene.swift in Sources */,
+				C81F001F2AADA8400032F371 /* MenuRow.swift in Sources */,
 				C8E197962A9535E200FA3137 /* PokeImageView.swift in Sources */,
 				C838BB042A768C820042FFCE /* ContentView.swift in Sources */,
 				C8E197E22A97873000FA3137 /* EvolvesTo.swift in Sources */,

@@ -13,7 +13,7 @@ struct PokeCardSceneState: DynamicProperty {
     let url: String
     
     var pokemon: Pokemon? {
-        pokemonObject.pokemon
+        pokemonObject.pokemons[number]
     }
     
     var number: Int {

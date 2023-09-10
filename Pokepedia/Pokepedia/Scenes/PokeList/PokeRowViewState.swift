@@ -22,7 +22,7 @@ struct PokeRowViewState: DynamicProperty {
     }
     
     var pokemon: Pokemon? {
-        pokemonObject.pokemon
+        pokemonObject.pokemons[number]
     }
     
     var types: [PossibleTypes] {

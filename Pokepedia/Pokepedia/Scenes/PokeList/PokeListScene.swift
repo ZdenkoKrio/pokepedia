@@ -14,6 +14,16 @@ struct PokeListScene: View {
     
     var body: some View {
         NavigationStack {
+            HStack(alignment: .center) {
+                if state.isRegionsEmpty {
+                    ForEach(state.regions, id: \.url) { region in
+                        Text("\(region.name)")
+                    }
+                }
+            } // HSTACK
+            .task {
+                await state.fetchRegions()
+            }
             Group {
                 if state.isRowPokemonsEmpty {
                     List(state.searchResults, id: \.url) { pokemon in
@@ -40,7 +50,7 @@ struct PokeListScene: View {
         } // NAVIGATION
         
         .task{
-            await state.fetch()
+            await state.fetchPokemon()
         }
         .sheet(isPresented: state.$showFavorites) {
             coordinator.favoritesScene(state: FavoritesSceneState(favorites: state.$favorites, favoritRowPokemons: state.favoritRows()))

@@ -17,11 +17,19 @@ struct PokeListSceneState: DynamicProperty {
     @State var searchName: String = ""
     
     var rowPokemons: [RowData] {
-        menuListObject.rows
+        menuListObject.rows[.pokemon] ?? []
+    }
+
+    var regions: [RowData] {
+        menuListObject.rows[.region] ?? []
     }
     
     var isRowPokemonsEmpty: Bool {
         !rowPokemons.isEmpty
+    }
+    
+    var isRegionsEmpty: Bool {
+        !regions.isEmpty
     }
     
     var searchResults: [RowData] {
@@ -41,8 +49,12 @@ struct PokeListSceneState: DynamicProperty {
         }
     }
     
-    func fetch() async {
-       await menuListObject.loadData(urlString: "https://pokeapi.co/api/v2/pokemon?limit=100000&offset=0")
+    func fetchPokemon() async {
+        await menuListObject.loadData(dataChoice: .pokemon)
+    }
+    
+    func fetchRegions() async {
+        await menuListObject.loadData(dataChoice: .region)
     }
     
     func fetchFavorites() {

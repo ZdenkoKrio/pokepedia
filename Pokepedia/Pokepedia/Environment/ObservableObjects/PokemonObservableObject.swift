@@ -8,19 +8,19 @@
 import Foundation
 
 final class PokemonObservableObject: ObservableObject {
-    @Published var pokemon: Pokemon? // = Pokemon.mock
+    @Published var pokemons: [Int : Pokemon]
     
     private let pokemonService: PokemonService
     
-    init(pokemonService: PokemonService, pokemon: Pokemon? = nil) {
+    init(pokemonService: PokemonService, pokemons: [Int : Pokemon] = [:]) {
         self.pokemonService = pokemonService
-        self.pokemon = pokemon
+        self.pokemons = pokemons
     }
     
     @MainActor
     func loadData(number: Int) async {
         do {
-            pokemon = try await pokemonService.pokemon(number: number)
+            pokemons[number] = try await pokemonService.pokemon(number: number)
         } catch {
              print("\(ObservableObjectError.pokemon) : \(error)")
         }
