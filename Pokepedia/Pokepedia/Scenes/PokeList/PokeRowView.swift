@@ -55,6 +55,6 @@ struct PokeRowView: View {
 
 struct PokeRowView_Previews: PreviewProvider {
     static var previews: some View {
-        PokeRowView(state: PokeRowViewState(url: "https://pokeapi.co/api/v2/pokemon/3/", name: "Ivisaur", favorites: .constant([]), showToast: .constant(false), toastLabel: .constant(""), isFav: false))
+        PokeRowView(state: PokeRowViewState(url: "https://pokeapi.co/api/v2/pokemon/3/", name: "Ivisaur", showToast: .constant(false), toastLabel: .constant(""), isFav: false))
     }
 }

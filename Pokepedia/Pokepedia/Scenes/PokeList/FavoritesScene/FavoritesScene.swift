@@ -12,6 +12,7 @@ struct FavoritesScene: View {
     var state: FavoritesSceneState
     
     var body: some View {
+        /*
         NavigationStack {
             Group {
                 if state.isFavoritesEmpty {
@@ -37,6 +38,8 @@ struct FavoritesScene: View {
                         .padding(.bottom)
             } // TOAST
         } // NAVIGATION
+         */
+        Text("Is using?")
     }
 }
 

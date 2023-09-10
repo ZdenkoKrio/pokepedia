@@ -14,12 +14,11 @@ struct PokeListScene: View {
     
     var body: some View {
         NavigationStack {
-            
             Group {
                 if state.isRowPokemonsEmpty {
                     List(state.showFavorites ? state.getFavoritesRows() : state.searchResults, id: \.url) { pokemon in
                         NavigationLink(destination: coordinator.pokeCardScene(state: PokeCardSceneState(url: pokemon.url))) {
-                            PokeRowView(state: PokeRowViewState(url: pokemon.url, name: pokemon.name.capitalized, favorites: state.$favorites, showToast: state.$showToast, toastLabel: state.$toastLabel, isFav: state.favorites.contains(pokemon.name)))
+                            PokeRowView(state: PokeRowViewState(url: pokemon.url, name: pokemon.name.capitalized, showToast: state.$showToast, toastLabel: state.$toastLabel, isFav: state.isFavourite(name: pokemon.name)))
                         } // LINK
                     } // LIST
                     .listStyle(.plain)
@@ -39,7 +38,7 @@ struct PokeListScene: View {
                 } // TOOLBAR ITEM
                 ToolbarItem(placement: .automatic) {
                     Button(action: {state.showFavorites.toggle()}) {
-                        Label("", systemImage: "heart.fill")
+                        Label("", systemImage: state.showFavorites ? "heart.fill" : "heart")
                             .foregroundColor(.blue)
                     } // BUTTON
                 } // TOOLBAR ITEM

@@ -13,7 +13,6 @@ struct PokeListSceneState: DynamicProperty {
     @EnvironmentObject private var generationObject: GenerationObservableObject
     @EnvironmentObject private var typeObject: PokemonTypeObservableObject
     @State var showFavorites: Bool = false
-    @State var favorites: [String] = []
     @State var showToast: Bool = false
     @State var toastLabel: String = ""
     @State var searchName: String = ""
@@ -89,7 +88,17 @@ struct PokeListSceneState: DynamicProperty {
     }
     
     func getFavoritesRows() -> [RowData] {
-        rows.filter{ favorites.contains($0.name.lowercased()) }
+        guard let pokemons = menuListObject.favouritePokemons else {
+            return []
+        }
+        return rows.filter{ pokemons.contains($0.name.lowercased()) }
+    }
+    
+    func isFavourite(name: String) -> Bool {
+        guard let pokemons = menuListObject.favouritePokemons else {
+            return false
+        }
+        return pokemons.contains(name.lowercased())
     }
     
     let toastOptions = SimpleToastOptions(
