@@ -13,17 +13,23 @@ final class ObservableObjects {
     let pokemon: PokemonObservableObject
     let species: SpeciesObservableObject
     let evolutionChain: EvolutionChainObservableObject
+    let type: PokemonTypeObservableObject
+    let generation: GenerationObservableObject
 
     init(
         menuList: MenuListObservableObject,
         pokemon: PokemonObservableObject,
         species: SpeciesObservableObject,
-        evolutionChain: EvolutionChainObservableObject
+        evolutionChain: EvolutionChainObservableObject,
+        type: PokemonTypeObservableObject,
+        generation: GenerationObservableObject
     ) {
         self.menuList = menuList
         self.pokemon = pokemon
         self.species = species
         self.evolutionChain = evolutionChain
+        self.type = type
+        self.generation = generation
     }
 }
 
@@ -34,12 +40,16 @@ extension ObservableObjects {
         let pokemon = PokemonObservableObject(pokemonService: services.pokemonService)
         let species = SpeciesObservableObject(speciesService: services.speciesService)
         let evolutionChain = EvolutionChainObservableObject(evolutionChainService: services.evolveService)
+        let type = PokemonTypeObservableObject(pokemonTypeService: services.typeService)
+        let generation = GenerationObservableObject(generationService: services.generationService)
 
         self.init(
             menuList: menuList,
             pokemon: pokemon,
             species: species,
-            evolutionChain: evolutionChain
+            evolutionChain: evolutionChain,
+            type: type,
+            generation: generation
         )
     }
 }

@@ -12,17 +12,23 @@ final class Services {
     let pokemonService: PokemonService
     let evolveService: EvolveService
     let speciesService: SpeciesService
+    let typeService: TypeService
+    let generationService: GenerationService
     
     init(
         menuListService: MenuListService,
         pokemonService: PokemonService,
         evolveService: EvolveService,
-        speciesService: SpeciesService
+        speciesService: SpeciesService,
+        typeService: TypeService,
+        generationService: GenerationService
     ) {
         self.menuListService = menuListService
         self.pokemonService = pokemonService
         self.evolveService = evolveService
         self.speciesService = speciesService
+        self.typeService = typeService
+        self.generationService = generationService
     }
 }
 
@@ -32,12 +38,16 @@ extension Services {
         let pokemonService = ProductionPokemonService()
         let speciesService = ProductionSpeciesService()
         let evolveService = ProductionEvolveService(speciesService: speciesService, pokemonService: pokemonService)
+        let typeService = ProductionTypeService()
+        let generationService = ProductionGenerationService()
 
         self.init(
             menuListService: menuListService,
             pokemonService: pokemonService,
             evolveService: evolveService,
-            speciesService: speciesService
+            speciesService: speciesService,
+            typeService: typeService,
+            generationService: generationService
         )
     }
 }
@@ -48,6 +58,8 @@ extension Services {
         menuListService: MockMenuListService(),
         pokemonService: MockPokemonService(),
         evolveService: MockEvolveService(),
-        speciesService: MockSpeciesService()
+        speciesService: MockSpeciesService(),
+        typeService: MockTypeService(),
+        generationService: MockGenerationService()
     )
 }

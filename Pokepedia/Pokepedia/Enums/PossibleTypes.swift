@@ -28,4 +28,6 @@ enum PossibleTypes: String, Identifiable, Decodable {
     case dark = "dark"
     case steel = "steel"
     case fairy = "fairy"
+    case shadow = "shadow"
+    case unknown = "unknown"
 }

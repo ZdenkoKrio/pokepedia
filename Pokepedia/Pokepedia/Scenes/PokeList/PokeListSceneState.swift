@@ -10,22 +10,26 @@ import SimpleToast
 
 struct PokeListSceneState: DynamicProperty {
     @EnvironmentObject private var menuListObject: MenuListObservableObject
+    @EnvironmentObject private var generationObject: GenerationObservableObject
+    @EnvironmentObject private var typeObject: PokemonTypeObservableObject
     @State var showFavorites: Bool = false
     @State var favorites: [String] = []
     @State var showToast: Bool = false
     @State var toastLabel: String = ""
     @State var searchName: String = ""
-    
-    var rowPokemons: [RowData] {
-        menuListObject.rows[.pokemon] ?? []
-    }
+    @State var showFilters: Bool = false
+    @State var rows: [RowData] = []
 
     var regions: [RowData] {
         menuListObject.rows[.region] ?? []
     }
     
+    var types: [RowData] {
+        menuListObject.rows[.type] ?? []
+    }
+    
     var isRowPokemonsEmpty: Bool {
-        !rowPokemons.isEmpty
+        !rows.isEmpty
     }
     
     var isRegionsEmpty: Bool {
@@ -34,15 +38,15 @@ struct PokeListSceneState: DynamicProperty {
     
     var searchResults: [RowData] {
         if searchName.isEmpty {
-            return rowPokemons
+            return rows
         } else {
             if searchName.isNumber {
-                return rowPokemons.filter{
+                return rows.filter{
                     let num = $0.url.split(separator: "/")[5]
                     return num.contains(searchName.lowercased())
                 }
             } else {
-                return rowPokemons.filter{
+                return rows.filter{
                     $0.name.contains(searchName.lowercased())
                 }
             }
@@ -51,18 +55,41 @@ struct PokeListSceneState: DynamicProperty {
     
     func fetchPokemon() async {
         await menuListObject.loadData(dataChoice: .pokemon)
+        rows = menuListObject.rows[.pokemon] ?? []
     }
     
     func fetchRegions() async {
         await menuListObject.loadData(dataChoice: .region)
     }
     
+    func fetchTypes() async {
+        await menuListObject.loadData(dataChoice: .type)
+    }
+    
+    func fetchRegionPokemons(region: String) async {
+        await generationObject.loadData(number: Int(region.split(separator: "/")[5]) ?? 3)
+        rows = generationObject.generation?.pokemons ?? []
+    }
+    
+    func fetchTypePokemons(type: String) async {
+        await typeObject.loadData(name: type)
+        rows = getPokemons(slots: typeObject.pokemonType?.pokemon ?? [])
+    }
+    
     func fetchFavorites() {
         print("Load from memory")
     }
     
-    func favoritRows() -> [RowData] {
-        rowPokemons.filter{ favorites.contains($0.name.lowercased()) }
+    func getPokemons(slots: [PokemonSlot]) -> [RowData] {
+        var result: [RowData] = []
+        for slot in slots {
+            result.append(slot.pokemon)
+        }
+        return result
+    }
+    
+    func getFavoritesRows() -> [RowData] {
+        rows.filter{ favorites.contains($0.name.lowercased()) }
     }
     
     let toastOptions = SimpleToastOptions(

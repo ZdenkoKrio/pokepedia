@@ -12,7 +12,7 @@ struct EvolveScene: View {
     
     var body: some View {
         VStack(alignment: .center) {
-            Text("Evolution Chain")
+            Text("Evolutions")
                 .font(.largeTitle)
                 .fontWeight(.bold)
             Group {
@@ -22,8 +22,7 @@ struct EvolveScene: View {
                             VStack {
                                 CardTitleView(state: CardTitleViewState(number: pokemon.id, name: pokemon.name))
                                 MainCardView(state: MainCardViewState(isEvolutionsAlowed: false, number: pokemon.id, types: state.getTypes(pokemon: pokemon)))
-                            } // VSTACK
-                                    
+                            } // VSTACK   
                         } // LIST
                         .listStyle(.plain)
                     } // TAB

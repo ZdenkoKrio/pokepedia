@@ -14,19 +14,10 @@ struct PokeListScene: View {
     
     var body: some View {
         NavigationStack {
-            HStack(alignment: .center) {
-                if state.isRegionsEmpty {
-                    ForEach(state.regions, id: \.url) { region in
-                        Text("\(region.name)")
-                    }
-                }
-            } // HSTACK
-            .task {
-                await state.fetchRegions()
-            }
+            
             Group {
                 if state.isRowPokemonsEmpty {
-                    List(state.searchResults, id: \.url) { pokemon in
+                    List(state.showFavorites ? state.getFavoritesRows() : state.searchResults, id: \.url) { pokemon in
                         NavigationLink(destination: coordinator.pokeCardScene(state: PokeCardSceneState(url: pokemon.url))) {
                             PokeRowView(state: PokeRowViewState(url: pokemon.url, name: pokemon.name.capitalized, favorites: state.$favorites, showToast: state.$showToast, toastLabel: state.$toastLabel, isFav: state.favorites.contains(pokemon.name)))
                         } // LINK
@@ -41,19 +32,26 @@ struct PokeListScene: View {
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .automatic) {
-                    Button(action: {state.showFavorites = true}) {
+                    Button(action: {state.showFilters = true}) {
+                        Text("Filters")
+                            .foregroundColor(.blue)
+                    } // BUTTON
+                } // TOOLBAR ITEM
+                ToolbarItem(placement: .automatic) {
+                    Button(action: {state.showFavorites.toggle()}) {
                         Label("", systemImage: "heart.fill")
                             .foregroundColor(.blue)
                     } // BUTTON
                 } // TOOLBAR ITEM
             } // TOOLBAR
         } // NAVIGATION
-        
         .task{
             await state.fetchPokemon()
+            await state.fetchRegions()
+            await state.fetchTypes()
         }
-        .sheet(isPresented: state.$showFavorites) {
-            coordinator.favoritesScene(state: FavoritesSceneState(favorites: state.$favorites, favoritRowPokemons: state.favoritRows()))
+        .sheet(isPresented: state.$showFilters) {
+            coordinator.filterScene(showFilters: state.$showFilters ,regions: state.regions, types: state.types, rows: state.$rows)
         } // SHEET
         .simpleToast(isPresented: state.$showToast, options: state.toastOptions) {
             Spacer()

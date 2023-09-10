@@ -20,7 +20,7 @@ final class EvolutionChainObservableObject: ObservableObject {
     @MainActor
     func loadData(number: Int) async {
         do {
-            evolutionChain = try await evolutionChainService.evolve(number: number)
+            self.evolutionChain = try await evolutionChainService.evolve(number: number)
         } catch {
             print("\(ObservableObjectError.evolutionChain) : \(error)")
         }

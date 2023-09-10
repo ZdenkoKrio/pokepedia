@@ -44,8 +44,8 @@ final class Coordinator: ObservableObject {
             .presentationDragIndicator(.visible)
     }
     
-    func favoritesScene(state: FavoritesSceneState) -> some View {
-        FavoritesScene(state: state)
+    func filterScene(showFilters: Binding<Bool>, regions: [RowData], types: [RowData], rows: Binding<[RowData]>) -> some View {
+        FilterScene(state: FilterSceneState(showFilters: showFilters, rows: rows, regions: regions, types: types))
             .presentationDetents([.large])
             .presentationDragIndicator(.visible)
     }
