@@ -15,6 +15,9 @@ struct Pokemon: Decodable {
     let species: RowData
     let types: [TypeSlot]
     let stats: [Stat]
+    let moves: [MoveSlot]
+    let abilities: [AbilitySlot]
+    // let baseExperience: Int
 }
 
 extension Pokemon {
@@ -30,5 +33,12 @@ extension Pokemon {
                                                Stat(value: 10, effort: 0, info: RowData(name: "defense", url: "")),
                                                Stat(value: 10, effort: 0, info: RowData(name: "defense-specil", url: "")),
                                                Stat(value: 10, effort: 0, info: RowData(name: "speed", url: "")),
-                                               Stat(value: 10, effort: 0, info: RowData(name: "hp", url: ""))])
+                                               Stat(value: 10, effort: 0, info: RowData(name: "hp", url: ""))],
+                                       moves: [MoveSlot(move: RowData(name: "punch", url: "https://pokeapi.co/api/v2/move/5/")),
+                                               MoveSlot(move: RowData(name: "punch", url: "https://pokeapi.co/api/v2/move/5/")),
+                                               MoveSlot(move: RowData(name: "punch", url: "https://pokeapi.co/api/v2/move/5/"))],
+                                       abilities: [AbilitySlot(ability: RowData(name: "static", url: "https://pokeapi.co/api/v2/ability/9/")),
+                                                   AbilitySlot(ability: RowData(name: "static", url: "https://pokeapi.co/api/v2/ability/9/")),
+                                                   AbilitySlot(ability: RowData(name: "static", url: "https://pokeapi.co/api/v2/ability/9/"))]
+    )
 }

@@ -16,13 +16,19 @@ struct MainScene: View {
                 HStack {
                     VStack {
                         NavigationLink(destination: coordinator.pokeListScene) {
-                            NavigationButtonView(name: "Pokemons")
+                            NavigationButtonView(name: "Pokemon")
                         } // LINK
                         NavigationLink(destination: coordinator.movesListScene) {
                             NavigationButtonView(name: "Moves")
                         } // LINK
                         NavigationLink(destination: coordinator.typesListScene) {
                             NavigationButtonView(name: "Types")
+                        } // LINK
+                        NavigationLink(destination: coordinator.typesListScene) {
+                            NavigationButtonView(name: "Locations")
+                        } // LINK
+                        NavigationLink(destination: coordinator.typesListScene) {
+                            NavigationButtonView(name: "Items")
                         } // LINK
                         Spacer()
                     } // VSTACK
