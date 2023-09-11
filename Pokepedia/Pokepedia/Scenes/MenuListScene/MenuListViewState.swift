@@ -10,6 +10,9 @@ import SwiftUI
 struct MenuListViewState: DynamicProperty {
     @EnvironmentObject private var menuListObject: MenuListObservableObject
     @State var searchName: String = ""
+    @State var showFavorites: Bool = false
+    @State var showToast: Bool = false
+    @State var toastLabel: String = ""
     let title: String
     let url: String
     let menuType: MenuRow
@@ -32,6 +35,20 @@ struct MenuListViewState: DynamicProperty {
                 $0.name.contains(searchName.lowercased())
             }
         }
+    }
+    
+    func getFavoritesRows() -> [RowData] {
+        guard let favourite = menuListObject.getFavourite(token: menuType) else {
+            return []
+        }
+        return rows.filter{ favourite.contains($0.name.lowercased()) }
+    }
+    
+    func isFavourite(name: String) -> Bool {
+        guard let pokemons = menuListObject.getFavourite(token: menuType) else {
+            return false
+        }
+        return pokemons.contains(name.lowercased())
     }
     
     func fetch() async {

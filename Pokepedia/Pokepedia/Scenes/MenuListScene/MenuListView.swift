@@ -16,13 +16,13 @@ struct MenuListView<TargetView: View>: View {
         NavigationStack {
             Group {
                 if state.isRowsEmpty {
-                    List(state.searchResults, id: \.url) { row in
+                    List(state.showFavorites ? state.getFavoritesRows() : state.searchResults, id: \.url) { row in
                         NavigationLink(destination: nextView) {
                             //MenuRowView(url: row.url, name: row.name.capitalized)
                             RowView(state: RowViewState(url: row.url, name: row.name.capitalized, rowType: state.menuType,
                                                         imageLocation: state.imageLocation, imgName: row.name,
-                                                        showToast: .constant(false), toastLabel: .constant(""),
-                                                        isFav: false))
+                                                        showToast: state.$showToast, toastLabel: state.$toastLabel,
+                                                        isFav: state.isFavourite(name: row.name)))
                         } // LINK
                     } // LIST
                     .listStyle(.plain)
@@ -33,6 +33,14 @@ struct MenuListView<TargetView: View>: View {
             .searchable(text: state.$searchName)
             .navigationTitle("\(state.title)")
             .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .automatic) {
+                    Button(action: {state.showFavorites.toggle()}) {
+                        Label("", systemImage: state.showFavorites ? "heart.fill" : "heart")
+                            .foregroundColor(.blue)
+                    } // BUTTON
+                } // TOOLBAR ITEM
+            } // TOOLBAR
         } // NAVIGATION
         .task{
             await state.fetch()

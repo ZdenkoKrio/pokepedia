@@ -53,7 +53,7 @@ struct RowViewState: DynamicProperty {
     func favoritToggle() -> Void {
         isFav.toggle()
         showToast.toggle()
-        menuListObject.updateFavourites(name: name, append: isFav)
+        menuListObject.updateFavourites(token: rowType, name: name, append: isFav)
         if isFav {
             toastLabel = "You add \(name) to favorites"
         } else {

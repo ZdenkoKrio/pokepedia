@@ -11,12 +11,48 @@ final class MenuListObservableObject: NSObject, ObservableObject {
     @Published var rows: [MenuRow: [RowData]]
     private let menuListService: MenuListService
     
-    private(set) var favouritePokemons: [String]? {
+    private(set) var favouritePokemon: [String]? {
         get {
-            UserDefaults.standard.array(forKey: "my.storage.favourites") as? [String]
+            UserDefaults.standard.array(forKey: "my.storage.favouritesPokemon") as? [String]
         }
         set {
-            UserDefaults.standard.set(newValue, forKey: "my.storage.favourites")
+            UserDefaults.standard.set(newValue, forKey: "my.storage.favouritesPokemon")
+        }
+    }
+    
+    private(set) var favouriteItems: [String]? {
+        get {
+            UserDefaults.standard.array(forKey: "my.storage.favouritesItems") as? [String]
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: "my.storage.favouritesItems")
+        }
+    }
+    
+    private(set) var favouriteLocations: [String]? {
+        get {
+            UserDefaults.standard.array(forKey: "my.storage.favouritesLocations") as? [String]
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: "my.storage.favouritesLocations")
+        }
+    }
+    
+    private(set) var favouriteTypes: [String]? {
+        get {
+            UserDefaults.standard.array(forKey: "my.storage.favouritesTypes") as? [String]
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: "my.storage.favouritesTypes")
+        }
+    }
+    
+    private(set) var favouriteMoves: [String]? {
+        get {
+            UserDefaults.standard.array(forKey: "my.storage.favouritesMoves") as? [String]
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: "my.storage.favouritesMoves")
         }
     }
     
@@ -40,14 +76,59 @@ final class MenuListObservableObject: NSObject, ObservableObject {
         }
     }
     
-    func updateFavourites(name: String, append: Bool) {
-        var pokemons = favouritePokemons ?? []
+    func updateFavourites(token: MenuRow, name: String, append: Bool) {
+        var favourites: [String] = []
+        switch token {
+        case .item:
+            favourites = favouriteItems ?? []
+        case .location:
+            favourites = favouriteLocations ?? []
+        case .move:
+            favourites = favouriteMoves ?? []
+        case .pokemon:
+            favourites = favouritePokemon ?? []
+        case .type:
+            favourites = favouriteTypes ?? []
+        case .region:
+            favourites = []
+        }
+        
         if append {
-            pokemons.append(name.lowercased())
-            favouritePokemons = pokemons
+            favourites.append(name.lowercased())
         } else {
-            pokemons = pokemons.filter { $0 != name.lowercased() }
-            favouritePokemons = pokemons
+            favourites = favourites.filter { $0 != name.lowercased() }
+        }
+        
+        switch token {
+        case .item:
+            favouriteItems = favourites
+        case .location:
+            favouriteLocations = favourites
+        case .move:
+            favouriteMoves = favourites
+        case .pokemon:
+            favouritePokemon = favourites
+        case .type:
+            favouriteTypes = favourites
+        case .region:
+            print("underConstruction")
+        }
+    }
+    
+    func getFavourite(token: MenuRow) -> [String]? {
+        switch token {
+        case .item:
+            return favouriteItems
+        case .location:
+            return favouriteLocations
+        case .move:
+            return favouriteMoves
+        case .pokemon:
+            return favouritePokemon
+        case .type:
+            return favouriteTypes
+        case .region:
+            return nil
         }
     }
 }

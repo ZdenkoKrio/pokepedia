@@ -84,14 +84,14 @@ struct PokeListSceneState: DynamicProperty {
     }
     
     func getFavoritesRows() -> [RowData] {
-        guard let pokemons = menuListObject.favouritePokemons else {
+        guard let pokemons = menuListObject.favouritePokemon else {
             return []
         }
         return rows.filter{ pokemons.contains($0.name.lowercased()) }
     }
     
     func isFavourite(name: String) -> Bool {
-        guard let pokemons = menuListObject.favouritePokemons else {
+        guard let pokemons = menuListObject.favouritePokemon else {
             return false
         }
         return pokemons.contains(name.lowercased())
