@@ -14,6 +14,9 @@ final class Services {
     let speciesService: SpeciesService
     let typeService: TypeService
     let generationService: GenerationService
+    let moveService: MoveService
+    let itemService: ItemService
+    let locationService: LocationService
     
     init(
         menuListService: MenuListService,
@@ -21,7 +24,10 @@ final class Services {
         evolveService: EvolveService,
         speciesService: SpeciesService,
         typeService: TypeService,
-        generationService: GenerationService
+        generationService: GenerationService,
+        moveService: MoveService,
+        itemService: ItemService,
+        locationService: LocationService
     ) {
         self.menuListService = menuListService
         self.pokemonService = pokemonService
@@ -29,6 +35,9 @@ final class Services {
         self.speciesService = speciesService
         self.typeService = typeService
         self.generationService = generationService
+        self.moveService = moveService
+        self.itemService = itemService
+        self.locationService = locationService
     }
 }
 
@@ -40,6 +49,9 @@ extension Services {
         let evolveService = ProductionEvolveService(speciesService: speciesService, pokemonService: pokemonService)
         let typeService = ProductionTypeService()
         let generationService = ProductionGenerationService()
+        let moveService = ProductionMoveService()
+        let itemService = ProductionItemService()
+        let locationService = ProductionLocationService()
 
         self.init(
             menuListService: menuListService,
@@ -47,7 +59,10 @@ extension Services {
             evolveService: evolveService,
             speciesService: speciesService,
             typeService: typeService,
-            generationService: generationService
+            generationService: generationService,
+            moveService: moveService,
+            itemService: itemService,
+            locationService: locationService
         )
     }
 }
@@ -60,6 +75,9 @@ extension Services {
         evolveService: MockEvolveService(),
         speciesService: MockSpeciesService(),
         typeService: MockTypeService(),
-        generationService: MockGenerationService()
+        generationService: MockGenerationService(),
+        moveService: MockMoveService(),
+        itemService: MockItemService(),
+        locationService: MockLocationService()
     )
 }

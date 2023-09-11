@@ -45,10 +45,10 @@ struct MenuListViewState: DynamicProperty {
     }
     
     func isFavourite(name: String) -> Bool {
-        guard let pokemons = menuListObject.getFavourite(token: menuType) else {
+        guard let favourite = menuListObject.getFavourite(token: menuType) else {
             return false
         }
-        return pokemons.contains(name.lowercased())
+        return favourite.contains(name.lowercased())
     }
     
     func fetch() async {

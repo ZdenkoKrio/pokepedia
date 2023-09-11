@@ -11,11 +11,13 @@ struct PokemonType: Decodable{
     let damageRelations: TypeDamageRelations
     let pokemon: [PokemonSlot]
     let moves: [RowData]
+    let name: String
     
     enum CodingKeys: String, CodingKey {
         case damageRelations = "damage_relations"
         case pokemon
         case moves
+        case name
     }
 }
 
@@ -32,5 +34,5 @@ extension PokemonType {
                                                ],
                                                moves: [
         RowData(name: "mega-punch", url: "https://pokeapi.co/api/v2/move/1/")
-                                               ])
+                                               ], name: "normal")
 }

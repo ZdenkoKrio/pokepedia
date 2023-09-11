@@ -26,3 +26,13 @@ struct Item: Decodable {
         case sprites
     }
 }
+
+extension Item {
+    static let mock: Item = Item(attributes: [RowData(name: "countable", url: "https://pokeapi.co/api/v2/item-attribute/1/")],
+                                 category: RowData(name: "vitamins", url: "https://pokeapi.co/api/v2/item-category/26/"),
+                                 effectEntries: [EffectEntry(effect: "nothing", language: RowData(name: "en", url: ""), shortEffect: "something")],
+                                 id: 1,
+                                 cost: 11,
+                                 name: "item",
+                                 sprites: Sprites(defaultSprite: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/hp-up.png"))
+}

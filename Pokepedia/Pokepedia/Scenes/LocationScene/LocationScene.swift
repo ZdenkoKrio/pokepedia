@@ -8,13 +8,27 @@
 import SwiftUI
 
 struct LocationScene: View {
+    let state: LocationSceneState
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            if state.isLoaded {
+                CardTitleView(state: CardTitleViewState(number: state.number, name: state.name))
+                HStack {
+                    Text("Region")
+                    Text("\(state.region)")
+                } //HSTACK
+            }
+            Spacer()
+        } // VSTACK
+        .task {
+            await state.fetch()
+        }
     }
 }
 
 struct LocationScene_Previews: PreviewProvider {
     static var previews: some View {
-        LocationScene()
+        LocationScene(state: LocationSceneState(url: "https://pokeapi.co/api/v2/location/3/"))
     }
 }

@@ -15,6 +15,9 @@ final class ObservableObjects {
     let evolutionChain: EvolutionChainObservableObject
     let type: PokemonTypeObservableObject
     let generation: GenerationObservableObject
+    let move: MoveObservableObject
+    let item: ItemObservableObject
+    let location: LocationObservableObject
 
     init(
         menuList: MenuListObservableObject,
@@ -22,7 +25,10 @@ final class ObservableObjects {
         species: SpeciesObservableObject,
         evolutionChain: EvolutionChainObservableObject,
         type: PokemonTypeObservableObject,
-        generation: GenerationObservableObject
+        generation: GenerationObservableObject,
+        move: MoveObservableObject,
+        item: ItemObservableObject,
+        location: LocationObservableObject
     ) {
         self.menuList = menuList
         self.pokemon = pokemon
@@ -30,6 +36,9 @@ final class ObservableObjects {
         self.evolutionChain = evolutionChain
         self.type = type
         self.generation = generation
+        self.move = move
+        self.item = item
+        self.location = location
     }
 }
 
@@ -42,6 +51,9 @@ extension ObservableObjects {
         let evolutionChain = EvolutionChainObservableObject(evolutionChainService: services.evolveService)
         let type = PokemonTypeObservableObject(pokemonTypeService: services.typeService)
         let generation = GenerationObservableObject(generationService: services.generationService)
+        let move = MoveObservableObject(moveService: services.moveService)
+        let item = ItemObservableObject(itemService: services.itemService)
+        let location = LocationObservableObject(locationService: services.locationService)
 
         self.init(
             menuList: menuList,
@@ -49,7 +61,10 @@ extension ObservableObjects {
             species: species,
             evolutionChain: evolutionChain,
             type: type,
-            generation: generation
+            generation: generation,
+            move: move,
+            item: item,
+            location: location
         )
     }
 }

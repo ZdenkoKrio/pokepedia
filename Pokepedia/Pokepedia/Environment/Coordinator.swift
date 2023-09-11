@@ -18,48 +18,50 @@ final class Coordinator: ObservableObject {
         MenuListView(state: MenuListViewState(title: "Moves",
                                               url: "https://pokeapi.co/api/v2/move?limit=100000&offset=0",
                                               menuType: .move,
-                                              imageLocation: .movesIcon),
-                     nextView: moveScene)
+                                              imageLocation: .movesIcon))
     }
     
     var locationsListScene: some View {
         MenuListView(state: MenuListViewState(title: "Locations",
                                               url: "https://pokeapi.co/api/v2/location?limit=100000&offset=0",
                                               menuType: .location,
-                                              imageLocation: .locationIcon),
-                     nextView: locationScene)
+                                              imageLocation: .locationIcon))
     }
     
     var itemsListScene: some View {
         MenuListView(state: MenuListViewState(title: "Items",
                                               url: "https://pokeapi.co/api/v2/item?limit=100000&offset=0",
                                               menuType: .item,
-                                              imageLocation: .itemIcon),
-                     nextView: itemScene)
+                                              imageLocation: .itemIcon))
     }
     
     var typesListScene: some View {
         MenuListView(state: MenuListViewState(title: "Types",
                                               url: "https://pokeapi.co/api/v2/type?limit=100000&offset=0",
                                               menuType: .type,
-                                              imageLocation: .typeIcon),
-                     nextView: typeScene)
+                                              imageLocation: .typeIcon))
     }
     
-    var moveScene: some View {
-        MoveScene()
+    func locationScene(url: String) -> some View {
+        LocationScene(state: LocationSceneState(url: url))
     }
     
-    var locationScene: some View {
-        LocationScene()
-    }
-    
-    var itemScene: some View {
-        ItemScene()
-    }
-    
-    var typeScene: some View {
-        TypeScene()
+    @ViewBuilder
+    func nextView(token: MenuRow, url: String) -> some View {
+        switch token {
+        case .item:
+            ItemScene()
+        case .location:
+            LocationScene(state: LocationSceneState(url: url))
+        case .move:
+            MoveScene()
+        case .pokemon:
+            EmptyView()
+        case .type:
+            TypeScene(state: TypeSceneState(url: url))
+        case .region:
+            EmptyView()
+        }
     }
     
     func pokeCardScene(state: PokeCardSceneState) -> some View {

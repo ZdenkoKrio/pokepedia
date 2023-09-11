@@ -28,3 +28,10 @@ struct Move: Decodable {
         case type
     }
 }
+
+extension Move {
+    static let mock: Move = Move(accuracy: 2, name: "some move", power: 4, pp: 5, priority: 2,
+                                 learnedByPokemon: [RowData(name: "pika", url: "https://pokeapi.co/api/v2/pokemon/35/")],
+                                 effectEntries: [EffectEntry(effect: "some", language: RowData(name: "en", url: ""), shortEffect: "somethint short")],
+                                 type: RowData(name: "normal", url: "https://pokeapi.co/api/v2/type/5/"))
+}

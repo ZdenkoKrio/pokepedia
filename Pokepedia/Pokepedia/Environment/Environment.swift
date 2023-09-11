@@ -19,6 +19,9 @@ private struct Environment: ViewModifier {
             .environmentObject(objects.evolutionChain)
             .environmentObject(objects.type)
             .environmentObject(objects.generation)
+            .environmentObject(objects.move)
+            .environmentObject(objects.item)
+            .environmentObject(objects.location)
             .environmentObject(coordinator)
     }
 }

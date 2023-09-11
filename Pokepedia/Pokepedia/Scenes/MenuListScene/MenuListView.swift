@@ -7,18 +7,16 @@
 
 import SwiftUI
 
-struct MenuListView<TargetView: View>: View {
+struct MenuListView: View {
     @EnvironmentObject var coordinator: Coordinator
     var state: MenuListViewState
-    var nextView: TargetView
     
     var body: some View {
         NavigationStack {
             Group {
                 if state.isRowsEmpty {
                     List(state.showFavorites ? state.getFavoritesRows() : state.searchResults, id: \.url) { row in
-                        NavigationLink(destination: nextView) {
-                            //MenuRowView(url: row.url, name: row.name.capitalized)
+                        NavigationLink(destination: coordinator.nextView(token: state.menuType, url: row.url)) {
                             RowView(state: RowViewState(url: row.url, name: row.name.capitalized, rowType: state.menuType,
                                                         imageLocation: state.imageLocation, imgName: row.name,
                                                         showToast: state.$showToast, toastLabel: state.$toastLabel,
@@ -50,7 +48,7 @@ struct MenuListView<TargetView: View>: View {
 
 struct MenuListScene_Previews: PreviewProvider {
     static var previews: some View {
-        MenuListView(state: MenuListViewState(title: "Moves", url: "https://pokeapi.co/api/v2/move/1/", menuType: .move, imageLocation: .itemIcon), nextView: MoveScene())
+        MenuListView(state: MenuListViewState(title: "Moves", url: "https://pokeapi.co/api/v2/move/1/", menuType: .move, imageLocation: .itemIcon))
             .injectPreviewsEnvironment()
     }
 }
