@@ -8,9 +8,15 @@
 import Foundation
 
 struct PokemonType: Decodable{
-    //let damageRelations: DamageRelations
+    let damageRelations: TypeDamageRelations
     let pokemon: [PokemonSlot]
     let moves: [RowData]
+    
+    enum CodingKeys: String, CodingKey {
+        case damageRelations = "damage_relations"
+        case pokemon
+        case moves
+    }
 }
 
 extension PokemonType {
