@@ -32,6 +32,9 @@
 		C81F003E2AAF063C0032F371 /* EffectChange.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81F003D2AAF063C0032F371 /* EffectChange.swift */; };
 		C81F00402AAF1CD90032F371 /* TypeDamageRelations.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81F003F2AAF1CD90032F371 /* TypeDamageRelations.swift */; };
 		C81F00422AAF1F420032F371 /* Move.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81F00412AAF1F420032F371 /* Move.swift */; };
+		C81F00442AAF24810032F371 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81F00432AAF24810032F371 /* Location.swift */; };
+		C81F00462AAF25560032F371 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81F00452AAF25560032F371 /* Item.swift */; };
+		C81F00482AAF2A570032F371 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81F00472AAF2A570032F371 /* File.swift */; };
 		C838BB022A768C820042FFCE /* PokepediaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C838BB012A768C820042FFCE /* PokepediaApp.swift */; };
 		C838BB042A768C820042FFCE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C838BB032A768C820042FFCE /* ContentView.swift */; };
 		C838BB062A768C830042FFCE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C838BB052A768C830042FFCE /* Assets.xcassets */; };
@@ -166,6 +169,9 @@
 		C81F003D2AAF063C0032F371 /* EffectChange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EffectChange.swift; sourceTree = "<group>"; };
 		C81F003F2AAF1CD90032F371 /* TypeDamageRelations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeDamageRelations.swift; sourceTree = "<group>"; };
 		C81F00412AAF1F420032F371 /* Move.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Move.swift; sourceTree = "<group>"; };
+		C81F00432AAF24810032F371 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		C81F00452AAF25560032F371 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		C81F00472AAF2A570032F371 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 		C838BAFE2A768C820042FFCE /* Pokepedia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pokepedia.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C838BB012A768C820042FFCE /* PokepediaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokepediaApp.swift; sourceTree = "<group>"; };
 		C838BB032A768C820042FFCE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -424,6 +430,9 @@
 				C81F003D2AAF063C0032F371 /* EffectChange.swift */,
 				C81F003F2AAF1CD90032F371 /* TypeDamageRelations.swift */,
 				C81F00412AAF1F420032F371 /* Move.swift */,
+				C81F00432AAF24810032F371 /* Location.swift */,
+				C81F00452AAF25560032F371 /* Item.swift */,
+				C81F00472AAF2A570032F371 /* File.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -763,6 +772,7 @@
 			files = (
 				C8E197D42A97702100FA3137 /* FavoritesSceneState.swift in Sources */,
 				C81F00032AAC9DE30032F371 /* MainScene.swift in Sources */,
+				C81F00442AAF24810032F371 /* Location.swift in Sources */,
 				C8E197AE2A9550B000FA3137 /* TypesViewState.swift in Sources */,
 				C8E197CD2A96133300FA3137 /* TypeSlot.swift in Sources */,
 				C8E197BF2A956B1800FA3137 /* PokeImageViewState.swift in Sources */,
@@ -770,6 +780,7 @@
 				C8E197E82A98F93700FA3137 /* EvolveStage.swift in Sources */,
 				C81F00292AADC5DF0032F371 /* Generation.swift in Sources */,
 				C838BBA42A7694F80042FFCE /* Pokemon.swift in Sources */,
+				C81F00462AAF25560032F371 /* Item.swift in Sources */,
 				C8E197A52A9541F900FA3137 /* ObservableObjects.swift in Sources */,
 				C81F000A2AACA5D10032F371 /* NavigationButtonView.swift in Sources */,
 				C81F003A2AAF040F0032F371 /* EffectEntry.swift in Sources */,
@@ -810,6 +821,7 @@
 				C8E197BB2A95696700FA3137 /* CardTitleViewState.swift in Sources */,
 				C81F00302AADF2300032F371 /* FilterScene.swift in Sources */,
 				C81F00422AAF1F420032F371 /* Move.swift in Sources */,
+				C81F00482AAF2A570032F371 /* File.swift in Sources */,
 				C81F00232AADC2960032F371 /* GenerationService.swift in Sources */,
 				C81F00402AAF1CD90032F371 /* TypeDamageRelations.swift in Sources */,
 				C8E197C12A956C6300FA3137 /* CardInfoViewState.swift in Sources */,
