@@ -31,6 +31,7 @@
 		C81F003A2AAF040F0032F371 /* EffectEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81F00392AAF040F0032F371 /* EffectEntry.swift */; };
 		C81F003E2AAF063C0032F371 /* EffectChange.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81F003D2AAF063C0032F371 /* EffectChange.swift */; };
 		C81F00402AAF1CD90032F371 /* TypeDamageRelations.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81F003F2AAF1CD90032F371 /* TypeDamageRelations.swift */; };
+		C81F00422AAF1F420032F371 /* Move.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81F00412AAF1F420032F371 /* Move.swift */; };
 		C838BB022A768C820042FFCE /* PokepediaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C838BB012A768C820042FFCE /* PokepediaApp.swift */; };
 		C838BB042A768C820042FFCE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C838BB032A768C820042FFCE /* ContentView.swift */; };
 		C838BB062A768C830042FFCE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C838BB052A768C830042FFCE /* Assets.xcassets */; };
@@ -164,6 +165,7 @@
 		C81F00392AAF040F0032F371 /* EffectEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EffectEntry.swift; sourceTree = "<group>"; };
 		C81F003D2AAF063C0032F371 /* EffectChange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EffectChange.swift; sourceTree = "<group>"; };
 		C81F003F2AAF1CD90032F371 /* TypeDamageRelations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeDamageRelations.swift; sourceTree = "<group>"; };
+		C81F00412AAF1F420032F371 /* Move.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Move.swift; sourceTree = "<group>"; };
 		C838BAFE2A768C820042FFCE /* Pokepedia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pokepedia.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C838BB012A768C820042FFCE /* PokepediaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokepediaApp.swift; sourceTree = "<group>"; };
 		C838BB032A768C820042FFCE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -421,6 +423,7 @@
 				C81F00392AAF040F0032F371 /* EffectEntry.swift */,
 				C81F003D2AAF063C0032F371 /* EffectChange.swift */,
 				C81F003F2AAF1CD90032F371 /* TypeDamageRelations.swift */,
+				C81F00412AAF1F420032F371 /* Move.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -806,6 +809,7 @@
 				C8E197E02A9786EF00FA3137 /* EvolutionChain.swift in Sources */,
 				C8E197BB2A95696700FA3137 /* CardTitleViewState.swift in Sources */,
 				C81F00302AADF2300032F371 /* FilterScene.swift in Sources */,
+				C81F00422AAF1F420032F371 /* Move.swift in Sources */,
 				C81F00232AADC2960032F371 /* GenerationService.swift in Sources */,
 				C81F00402AAF1CD90032F371 /* TypeDamageRelations.swift in Sources */,
 				C8E197C12A956C6300FA3137 /* CardInfoViewState.swift in Sources */,
