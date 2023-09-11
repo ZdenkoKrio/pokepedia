@@ -13,6 +13,7 @@ struct MenuListViewState: DynamicProperty {
     let title: String
     let url: String
     let menuType: MenuRow
+    let imageLocation: ImageUrls
 
     
     var rows: [RowData] {

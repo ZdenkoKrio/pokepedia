@@ -15,15 +15,47 @@ final class Coordinator: ObservableObject {
     }
     
     var movesListScene: some View {
-        MenuListView(state: MenuListViewState(title: "Moves", url: "https://pokeapi.co/api/v2/move?limit=100000&offset=0", menuType: .move), nextView: moveScene)
+        MenuListView(state: MenuListViewState(title: "Moves",
+                                              url: "https://pokeapi.co/api/v2/move?limit=100000&offset=0",
+                                              menuType: .move,
+                                              imageLocation: .movesIcon),
+                     nextView: moveScene)
+    }
+    
+    var locationsListScene: some View {
+        MenuListView(state: MenuListViewState(title: "Locations",
+                                              url: "https://pokeapi.co/api/v2/location?limit=100000&offset=0",
+                                              menuType: .location,
+                                              imageLocation: .locationIcon),
+                     nextView: locationScene)
+    }
+    
+    var itemsListScene: some View {
+        MenuListView(state: MenuListViewState(title: "Items",
+                                              url: "https://pokeapi.co/api/v2/item?limit=100000&offset=0",
+                                              menuType: .item,
+                                              imageLocation: .itemIcon),
+                     nextView: itemScene)
     }
     
     var typesListScene: some View {
-        MenuListView(state: MenuListViewState(title: "Types", url: "https://pokeapi.co/api/v2/type?limit=100000&offset=0", menuType: .type), nextView: typeScene)
+        MenuListView(state: MenuListViewState(title: "Types",
+                                              url: "https://pokeapi.co/api/v2/type?limit=100000&offset=0",
+                                              menuType: .type,
+                                              imageLocation: .typeIcon),
+                     nextView: typeScene)
     }
     
     var moveScene: some View {
         MoveScene()
+    }
+    
+    var locationScene: some View {
+        LocationScene()
+    }
+    
+    var itemScene: some View {
+        ItemScene()
     }
     
     var typeScene: some View {

@@ -7,11 +7,14 @@
 
 import SwiftUI
 
-struct PokeRowViewState: DynamicProperty {
+struct RowViewState: DynamicProperty {
     @EnvironmentObject private var pokemonObject: PokemonObservableObject
     @EnvironmentObject private var menuListObject: MenuListObservableObject
     let url: String
     let name: String
+    let rowType: MenuRow
+    let imageLocation: ImageUrls
+    let imgName: String
     @Binding var showToast: Bool
     @Binding var toastLabel: String
     

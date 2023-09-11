@@ -12,4 +12,6 @@ enum MenuRow: String {
     case type
     case move
     case region
+    case location
+    case item
 }

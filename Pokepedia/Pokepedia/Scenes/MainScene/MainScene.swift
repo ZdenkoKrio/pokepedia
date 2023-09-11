@@ -24,10 +24,10 @@ struct MainScene: View {
                         NavigationLink(destination: coordinator.typesListScene) {
                             NavigationButtonView(name: "Types")
                         } // LINK
-                        NavigationLink(destination: coordinator.typesListScene) {
+                        NavigationLink(destination: coordinator.locationsListScene) {
                             NavigationButtonView(name: "Locations")
                         } // LINK
-                        NavigationLink(destination: coordinator.typesListScene) {
+                        NavigationLink(destination: coordinator.itemsListScene) {
                             NavigationButtonView(name: "Items")
                         } // LINK
                         Spacer()

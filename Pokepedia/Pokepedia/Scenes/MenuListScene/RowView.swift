@@ -8,13 +8,12 @@
 import SwiftUI
 import SimpleToast
 
-struct PokeRowView: View {
-    var state: PokeRowViewState
+struct RowView: View {
+    var state: RowViewState
     
     var body: some View {
         HStack {
-            
-            AsyncImage(url: URL(string: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/\(state.number).png")) {
+            AsyncImage(url: URL(string: "\(state.imageLocation.rawValue)\(state.imgName).png")) {
                 image in
                 image
                     .resizable()
@@ -35,7 +34,9 @@ struct PokeRowView: View {
                         .fontWeight(.bold)
                         .font(.system(size: 23))
                 } // HSTACK
-                TypesView(state: TypesViewState(backgroundNumber: .constant(0), types: state.types))
+                if state.rowType == .pokemon {
+                    TypesView(state: TypesViewState(backgroundNumber: .constant(0), types: state.types))
+                } // IF
             } // VSTACK
             Spacer()
             Image(systemName: state.isFav ? "star.fill" : "star")
@@ -48,13 +49,15 @@ struct PokeRowView: View {
         } // HSTACK
         .padding(10)
         .task {
-            await state.fetch()
-        }
+            if state.rowType == .pokemon {
+                await state.fetch()
+            }
+        } // TASK
     }
 }
 
-struct PokeRowView_Previews: PreviewProvider {
+struct RowView_Previews: PreviewProvider {
     static var previews: some View {
-        PokeRowView(state: PokeRowViewState(url: "https://pokeapi.co/api/v2/pokemon/3/", name: "Ivisaur", showToast: .constant(false), toastLabel: .constant(""), isFav: false))
+        RowView(state: RowViewState(url: "https://pokeapi.co/api/v2/pokemon/3/", name: "Ivisaur", rowType: .item, imageLocation: .pokemonIcon, imgName: "3", showToast: .constant(false), toastLabel: .constant(""), isFav: false))
     }
 }

@@ -75,10 +75,6 @@ struct PokeListSceneState: DynamicProperty {
         rows = getPokemons(slots: typeObject.pokemonType?.pokemon ?? [])
     }
     
-    func fetchFavorites() {
-        print("Load from memory")
-    }
-    
     func getPokemons(slots: [PokemonSlot]) -> [RowData] {
         var result: [RowData] = []
         for slot in slots {

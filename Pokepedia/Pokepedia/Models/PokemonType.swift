@@ -20,7 +20,14 @@ struct PokemonType: Decodable{
 }
 
 extension PokemonType {
-    static let mock: PokemonType = PokemonType(pokemon: [
+    static let mock: PokemonType = PokemonType(damageRelations:
+                                                TypeDamageRelations(doubleDamageFrom: [RowData(name: "fire", url: "https://pokeapi.co/api/v2/type/1/")],
+                                                                    doubleDamgeTo: [RowData(name: "fire", url: "https://pokeapi.co/api/v2/type/1/")],
+                                                                    halfDamageFrom: [RowData(name: "fire", url: "https://pokeapi.co/api/v2/type/1/")],
+                                                                    halfDamageTo: [RowData(name: "fire", url: "https://pokeapi.co/api/v2/type/1/")],
+                                                                    noDamageFrom: [],
+                                                                    noDamageTo: []),
+                                               pokemon: [
         PokemonSlot(pokemon: RowData(name: "pikachu", url: "https://pokeapi.co/api/v2/pokemon/16/"))
                                                ],
                                                moves: [

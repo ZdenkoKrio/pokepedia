@@ -18,7 +18,7 @@ struct PokeListScene: View {
                 if state.isRowPokemonsEmpty {
                     List(state.showFavorites ? state.getFavoritesRows() : state.searchResults, id: \.url) { pokemon in
                         NavigationLink(destination: coordinator.pokeCardScene(state: PokeCardSceneState(url: pokemon.url))) {
-                            PokeRowView(state: PokeRowViewState(url: pokemon.url, name: pokemon.name.capitalized, showToast: state.$showToast, toastLabel: state.$toastLabel, isFav: state.isFavourite(name: pokemon.name)))
+                            RowView(state: RowViewState(url: pokemon.url, name: pokemon.name.capitalized, rowType: .pokemon, imageLocation: .pokemonIcon, imgName: String(pokemon.url.split(separator: "/")[5]), showToast: state.$showToast, toastLabel: state.$toastLabel, isFav: state.isFavourite(name: pokemon.name)))
                         } // LINK
                     } // LIST
                     .listStyle(.plain)

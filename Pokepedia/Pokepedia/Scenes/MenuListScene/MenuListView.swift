@@ -18,7 +18,11 @@ struct MenuListView<TargetView: View>: View {
                 if state.isRowsEmpty {
                     List(state.searchResults, id: \.url) { row in
                         NavigationLink(destination: nextView) {
-                            MenuRowView(url: row.url, name: row.name.capitalized)
+                            //MenuRowView(url: row.url, name: row.name.capitalized)
+                            RowView(state: RowViewState(url: row.url, name: row.name.capitalized, rowType: state.menuType,
+                                                        imageLocation: state.imageLocation, imgName: row.name,
+                                                        showToast: .constant(false), toastLabel: .constant(""),
+                                                        isFav: false))
                         } // LINK
                     } // LIST
                     .listStyle(.plain)
@@ -38,7 +42,7 @@ struct MenuListView<TargetView: View>: View {
 
 struct MenuListScene_Previews: PreviewProvider {
     static var previews: some View {
-        MenuListView(state: MenuListViewState(title: "Moves", url: "https://pokeapi.co/api/v2/move/1/", menuType: .move), nextView: MoveScene())
+        MenuListView(state: MenuListViewState(title: "Moves", url: "https://pokeapi.co/api/v2/move/1/", menuType: .move, imageLocation: .itemIcon), nextView: MoveScene())
             .injectPreviewsEnvironment()
     }
 }
