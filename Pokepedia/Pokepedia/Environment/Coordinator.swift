@@ -54,7 +54,7 @@ final class Coordinator: ObservableObject {
         case .location:
             LocationScene(state: LocationSceneState(url: url))
         case .move:
-            MoveScene()
+            MoveScene(state: MoveSceneState(url: url))
         case .pokemon:
             EmptyView()
         case .type:

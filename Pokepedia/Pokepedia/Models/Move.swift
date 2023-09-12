@@ -24,7 +24,7 @@ struct Move: Decodable {
         case pp
         case priority
         case learnedByPokemon = "learned_by_pokemon"
-        case effectEntries = "effect_Entries"
+        case effectEntries = "effect_entries"
         case type
     }
 }

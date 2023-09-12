@@ -60,4 +60,3 @@ struct TypeSceneState: DynamicProperty {
         return result
     }
 }
-
