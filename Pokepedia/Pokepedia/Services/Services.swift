@@ -43,6 +43,11 @@ final class Services {
 
 extension Services {
     convenience init() {
+        URLSession.shared.configuration.urlCache = URLCache(
+            memoryCapacity: 50 * 1024 * 1024,
+            diskCapacity: 50 * 1024 * 1024
+        )
+        
         let menuListService = ProductionMenuListService()
         let pokemonService = ProductionPokemonService()
         let speciesService = ProductionSpeciesService()
