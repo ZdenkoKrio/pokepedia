@@ -51,7 +51,6 @@ struct TypeScene: View {
                     .padding()
                     .font(.title3)
                     .fontWeight(.bold)
-                    .foregroundColor(.black)
                     
                     Section {
                         DisclosureGroup("Moves") {
@@ -69,7 +68,6 @@ struct TypeScene: View {
                     .padding()
                     .font(.title3)
                     .fontWeight(.bold)
-                    .foregroundColor(.black)
                 } else {
                     ProgressView()
                 } // ELSE
